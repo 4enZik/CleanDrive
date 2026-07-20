@@ -99,13 +99,64 @@
     font-weight: 300; 
 }
 
-.complex-prices { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 10px; 
-    opacity: 0.3; 
-    transform: translateY(10px); 
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); 
+.complex-prices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0.3; /* Цены приглушены до ховера на ПК */
+    transform: translateY(10px);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 100%;
+    margin-top: 20px;
+
+    /* НАВЕДЕНИЕ ПОРЯДКА: общая подложка и золотой край слева для ВСЕХ комплексов */
+    background: rgba(197, 168, 128, 0.03) !important; 
+    padding: 15px !important;
+    border-radius: 4px !important;
+    border-left: 2px solid var(--accent) !important; /* Золотая нить горит на всех карточках */
+    box-sizing: border-box;
+}
+
+.complex-price-row,
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+    padding-bottom: 6px;
+    font-size: 14px;
+    width: 100%;
+}
+.complex-price-row:last-child,
+.price-row:last-child { 
+    border-bottom: none !important; 
+    padding-bottom: 0 !important;
+}
+
+.complex-price-row span,
+.price-row span { 
+    color: var(--text-muted); 
+    font-weight: 300; 
+}
+
+/* Цены в комплексах */
+.complex-price-row b,
+.price-row b { 
+    color: var(--accent); 
+    font-family: 'Syncopate', sans-serif; 
+    font-size: 13px; 
+    font-weight: 700; 
+}
+
+/* ТОТАЛЬНОЕ ОБНУЛЕНИЕ КЛАССА .SINGLE В КОМПЛЕКСАХ (УБИРАЕМ ДУБЛИРОВАНИЕ) */
+.complex-price-row.single,
+.price-row.single {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    display: flex !important;
+    justify-content: space-between !important;
 }
 
 .complex-wrapper:hover .complex-card { 

@@ -93,26 +93,36 @@
     margin-top: 5px; 
 }
 
-.service-prices { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 10px; 
-    opacity: 0.3; 
-    transform: translateY(10px); 
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); 
+.service-prices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0.3; /* Цены на ПК остаются слегка приглушенными до ховера мыши */
+    transform: translateY(10px);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 100%;
+    margin-top: 15px;
+
+    /* НАВЕДЕНИЕ ЛЮКСА: делаем общую подложку и золотой край слева для ВСЕХ блоков на ПК */
+    background: rgba(197, 168, 128, 0.03) !important; /* Мягкий матовый золотистый фон */
+    padding: 15px !important;
+    border-radius: 4px !important;
+    border-left: 2px solid var(--accent) !important; /* Золотая нить теперь горит везде! */
+    box-sizing: border-box;
 }
 
-.price-row { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03); 
-    padding-bottom: 6px; 
-    font-size: 14px; 
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+    padding-bottom: 6px;
+    font-size: 14px;
+    width: 100%;
 }
-
 .price-row:last-child { 
-    border: none; 
+    border-bottom: none !important; 
+    padding-bottom: 0 !important;
 }
 
 .price-row span { 
@@ -127,12 +137,13 @@
     font-weight: 700; 
 }
 
-.price-row.single { 
-    border: none; 
-    background: rgba(197, 168, 128, 0.05); 
-    padding: 10px 15px; 
-    border-radius: 4px; 
-    border-left: 2px solid var(--accent); 
+.price-row.single {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    display: flex !important;
+    justify-content: space-between !important;
 }
 
 .service-wrapper:hover .service-card { 
@@ -286,30 +297,47 @@
         line-height: 1.4 !important;
     }
 
-    .service-prices {
-        opacity: 1 !important;
-        transform: none !important;
-        display: flex !important;
+    .service-prices { 
+        opacity: 1 !important; 
+        transform: none !important; 
+        display: flex !important; 
         flex-direction: column !important;
-        gap: 10px !important;
+        gap: 12px !important;
         width: 100% !important;
+        margin-top: 15px !important;
+
+        /* ОФОРМЛЯЕМ ОБЩУЮ ДЛЯ ВСЕХ БЛОКОВ ПОДЛОЖКУ И ЛИНИЮ */
+        background: rgba(197, 168, 128, 0.03) !important; /* Мягкий матовый золотистый фон */
+        padding: 15px !important; 
+        border-radius: 4px !important; 
+        
+        /* ЖЕСТКИЙ ПЕРЕНOС: теперь золотой край будет у ВСЕХ карточек без исключения! */
+        border-left: 2px solid var(--accent) !important; 
     }
 
     /* Ровные строки прайса */
-    .price-row {
-        display: flex !important;
-        justify-content: space-between !important; /* Текст влево, цена вправо */
-        align-items: center !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-        padding-bottom: 8px !important;
-        font-size: 13px !important;
+    .price-row { 
+        display: flex !important; 
+        justify-content: space-between !important; 
+        align-items: center !important; 
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important; 
+        padding-bottom: 8px !important; 
         width: 100% !important;
+        font-size: 13px !important; 
     }
-    .price-row:last-child {
-        border-bottom: none !important;
+    .price-row:last-child { 
+        border: none !important; 
         padding-bottom: 0 !important;
     }
 
+    .price-row.single { 
+        border: none !important; 
+        background: transparent !important; 
+        padding: 0 !important; 
+        border-radius: 0 !important; 
+        display: flex !important;
+        justify-content: space-between !important;
+    }
     .price-row span {
         color: #b0b5bc !important;
         white-space: nowrap !important;
