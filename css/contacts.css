@@ -1,0 +1,200 @@
+/* ==========================================================================
+   БЛОК 10: СВЯЖИТЕСЬ С НАМИ (PREMIUM LOOK & PERFECT SYMMETRY)
+   ========================================================================== */
+.contacts-block {
+    padding: 120px 20px;
+    border-top: 1px solid var(--border-color);
+}
+.contacts-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.contacts-badge {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* На ПК жестко связываем левую и правую колонки, заставляя их быть ОДНОЙ высоты */
+.contacts-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr !important;
+    gap: 30px;
+    align-items: stretch !important; 
+}
+
+/* Растягиваем правую сетку на всю высоту родительского контейнера */
+.contacts-meta-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    height: 100% !important; 
+}
+
+/* Магия флексов: заставляем невидимые 3D-обертки занять ровно половину высоты */
+.contacts-meta-grid .contacts-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important; 
+}
+
+/* Левая большая карточка */
+.contacts-info-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 45px;
+    height: 100%;
+    transform-style: preserve-3d;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transition: transform 0.1s ease-out, border-color 0.4s ease;
+}
+.contacts-info-card h3 {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+    margin-bottom: 35px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    transform: translateZ(20px);
+}
+
+/* Дорогие кликабельные строки-ссылки */
+.contact-links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transform: translateZ(30px);
+}
+.contact-row-link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 25px;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    -webkit-tap-highlight-color: transparent;
+}
+.contact-icon {
+    font-size: 22px;
+    transition: transform 0.4s ease;
+}
+.contact-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.contact-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+.contact-value {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Интерактивный отклик строк контактов */
+.contact-row-link:hover {
+    background: rgba(197, 168, 128, 0.04);
+    border-color: rgba(197, 168, 128, 0.3);
+    transform: translateY(-2px);
+}
+.contact-row-link:hover .contact-value {
+    color: var(--accent); 
+}
+.contact-row-link:hover .contact-icon {
+    transform: scale(1.15);
+}
+
+/* ПРАВЫЕ КАРТОЧКИ (ТЕПЕРЬ НА 100% РАВНЫ ПО ВЫСОТЕ С ЛЕВОЙ) */
+.meta-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 45px; 
+    
+    width: 100% !important;
+    height: 100% !important; /* Намертво заполняет высоту обертки */
+    
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important; /* Текст встает идеально по центру вертикали */
+    align-items: flex-start !important;
+    
+    position: relative;
+    transform-style: preserve-3d;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transition: transform 0.1s ease-out, border-color 0.4s ease;
+}
+.meta-icon {
+    position: absolute;
+    top: 35px; 
+    right: 40px;
+    font-size: 24px;
+    opacity: 0.25;
+    transform: translateZ(10px);
+}
+.meta-box h4 {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    transform: translateZ(20px);
+}
+.meta-box p {
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: 400;
+    line-height: 1.5;
+    transform: translateZ(25px);
+}
+.meta-subtext {
+    font-size: 12px;
+    color: var(--text-muted) !important;
+    margin-top: 4px;
+    font-weight: 300;
+    transform: translateZ(20px);
+}
+
+/* ХОВЕРЫ ДЛЯ КАРТОЧЕК НА ПК */
+.contacts-wrapper:hover .contacts-info-card,
+.contacts-wrapper:hover .meta-box {
+    border-color: rgba(197, 168, 128, 0.3);
+}
+
+/* ==========================================================================
+   АДАПТИВНОСТЬ БЛОКА КОНТАКТОВ
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .contacts-grid {
+        grid-template-columns: 1fr !important; /* На планшетах перестраиваем в одну колонку */
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contacts-block { padding: 60px 20px !important; }
+    .contacts-info-card { padding: 30px 20px !important; }
+    .meta-box { padding: 30px 25px !important; }
+    .contact-row-link { padding: 15px 20px !important; }
+    .contact-value { font-size: 15px !important; }
+    /* Сброс 3D на тачах для стабильности пальца */
+    .contacts-info-card, .meta-box { transform: none !important; }
+}

@@ -1,0 +1,267 @@
+.complex-block { 
+    padding: 120px 20px; 
+    border-top: 1px solid var(--border-color); 
+}
+
+.complex-header 
+{ 
+    text-align: center; 
+    margin-bottom: 60px; 
+}
+
+.complex-badge { 
+    font-family: 'Syncopate', sans-serif; 
+    font-size: 11px; 
+    text-transform: uppercase; 
+    letter-spacing: 4px; 
+    color: var(--accent); 
+    display: block; 
+    margin-bottom: 15px; 
+}
+
+.complex-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr) !important; 
+    gap: 30px; 
+}
+
+.complex-wrapper { 
+    perspective: 1000px; 
+    height: 420px; 
+}
+
+.complex-card { 
+    position: relative; 
+    width: 100%; 
+    height: 100%; 
+    background: var(--bg-card); 
+    border: 1px solid var(--border-color); 
+    border-radius: 4px; 
+    overflow: hidden; 
+    transform-style: preserve-3d; 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4); 
+    transition: transform 0.1s ease-out; 
+}
+
+.complex-card.featured { 
+    border-color: rgba(197, 168, 128, 0.4); 
+    box-shadow: 0 20px 50px rgba(197, 168, 128, 0.05); 
+}
+
+.complex-img { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-size: cover; 
+    background-position: center; 
+    filter: grayscale(0.4) brightness(0.18) contrast(1.2); 
+    transform: scale(1.05); 
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); 
+}
+
+.complex-overlay { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: linear-gradient(to top, rgba(10, 11, 13, 0.95) 0%, rgba(10, 11, 13, 0.65) 45%, rgba(10, 11, 13, 0.1) 100%) !important; 
+    z-index: 1; 
+    transition: background 0.4s ease; 
+}
+
+.complex-content { 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
+    padding: 35px; 
+    z-index: 2; 
+    transform: translateZ(30px); 
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); 
+}
+
+.complex-content h3 { 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 22px; 
+    font-weight: 400; 
+    color: #ffffff; 
+    margin-bottom: 10px; 
+}
+
+.complex-short-desc { 
+    font-size: 13px; 
+    color: #b0b5bc !important; 
+    line-height: 1.4; 
+    margin-bottom: 25px; 
+    font-weight: 300; 
+}
+
+.complex-prices { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+    opacity: 0.3; 
+    transform: translateY(10px); 
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); 
+}
+
+.complex-wrapper:hover .complex-card { 
+    border-color: rgba(197, 168, 128, 0.5); 
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6); 
+}
+
+.complex-wrapper:hover .complex-img { 
+    filter: grayscale(0) brightness(0.45) contrast(1.2) saturate(1.1) !important; 
+    transform: scale(1.02); 
+}
+
+.complex-wrapper:hover .complex-overlay { 
+    background: linear-gradient(to top, rgba(10, 11, 13, 0.98) 0%, rgba(10, 11, 13, 0.75) 50%, rgba(10, 11, 13, 0.2) 100%) !important; 
+}
+
+.complex-wrapper:hover .complex-content { 
+    transform: translateZ(50px) translateY(-5px); 
+}
+
+.complex-wrapper:hover .complex-prices { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Сетка аккуратно держит карточки на планшете */
+    .complex-grid { 
+        display: flex !important; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 25px; 
+    }
+    
+    .complex-wrapper { 
+        width: calc(50% - 13px); 
+        height: 420px; 
+        perspective: none !important; /* Убираем 3D-перекосы на тачах */
+    }
+
+    /* ЖЕСТКИЙ ПРОЯВИТЕЛЬ КАРТИНОК: Делаем фото комплексов сразу сочными и светлыми */
+    .complex-img {
+        filter: grayscale(0.1) brightness(0.55) contrast(1.2) saturate(1.1) !important;
+        transform: none !important;
+    }
+
+    /* Смягчаем темную вуаль, чтобы проявить детали фото, но сохранить читаемость белых букв */
+    .complex-overlay {
+        background: linear-gradient(to top, rgba(10, 11, 13, 0.98) 0%, rgba(10, 11, 13, 0.75) 50%, rgba(10, 11, 13, 0.2) 100%) !important;
+    }
+
+    /* ЦЕНЫ И КУЗОВА НА IPAD ГОРЯТ НА 100% СРАЗУ, без ховеров мыши! */
+    .complex-prices {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        visibility: visible !important;
+    }
+
+    /* СБРОС ПК-ХОВЕРОВ ПРИ ТАПЕ: Намертво запрещаем картинкам вспыхивать сильнее при нажатии */
+    .complex-wrapper:hover .complex-card {
+        transform: none !important;
+        border-color: rgba(197, 168, 128, 0.4) !important;
+    }
+    .complex-wrapper:hover .complex-content {
+        transform: none !important;
+    }
+    .complex-wrapper:hover .complex-img {
+        filter: grayscale(0.1) brightness(0.55) contrast(1.2) saturate(1.1) !important;
+        transform: none !important;
+    }
+}
+
+
+/* ==========================================================================
+   АДАПТИВНОСТЬ ДЛЯ СМАРТФОНОВ (СТРОГО ДО 768px) - ПОЛНЫЙ ПРОЯВИТЕЛЬ КОМПЛЕКСОВ
+   ========================================================================== */
+@media (max-width: 768px) {
+    .complex-block {
+        padding: 60px 15px !important;
+    }
+
+    .complex-grid { 
+        display: grid !important; 
+        grid-template-columns: 1fr !important; /* Строго 1 колонка на телефонах */
+        gap: 25px !important; 
+        width: 100% !important; 
+    }
+
+    .complex-wrapper { 
+        width: 100% !important; 
+        height: auto !important; 
+        perspective: none !important; 
+        transform: none !important; 
+    }
+
+    /* Мобильный корпус карточки переводим в вертикальный поток */
+    .complex-card { 
+        height: auto !important; 
+        display: flex !important; 
+        flex-direction: column !important; 
+        background: var(--bg-card) !important;
+        border-color: var(--border-color) !important;
+        transform: none !important;
+    }
+    
+    /* Выносим сочную картинку комплекса НАД текстом */
+    .complex-img { 
+        position: relative !important; 
+        width: 100% !important; 
+        height: 220px !important; 
+        filter: grayscale(0) brightness(0.8) contrast(1.1) !important; /* На мобилке горит на максимум */
+        transform: none !important; 
+        display: block !important; 
+    }
+
+    .complex-overlay { 
+        display: none !important; /* Сносим градиент, чтобы картинка не темнела */
+    }
+
+    /* Текстовая зона под картинкой */
+    .complex-content { 
+        position: relative !important; 
+        padding: 25px 20px !important; 
+        transform: none !important; 
+        width: 100% !important; 
+    }
+
+    .complex-content h3 {
+        font-size: 20px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .complex-short-desc {
+        font-size: 13px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* СТРОГИЕ ЦЕНЫ БЕЗ ХОВЕРОВ И ЛИШНИХ НАЖАТИЙ */
+    .complex-prices { 
+        opacity: 1 !important; 
+        visibility: visible !important; 
+        display: flex !important; 
+        transform: none !important; 
+        margin-top: 20px !important; 
+        border-left: 2px solid var(--accent) !important; /* Фирменная золотая черта слева */
+        padding-left: 15px !important; 
+    }
+
+    /* Фикс ховеров для мобильных тачей */
+    .complex-wrapper:hover .complex-card { 
+        border-color: var(--border-color) !important; 
+        background: var(--bg-card) !important; 
+        transform: none !important; 
+    }
+    .complex-wrapper:hover .complex-img {
+        filter: grayscale(0) brightness(0.8) contrast(1.1) !important;
+        transform: none !important;
+    }
+}

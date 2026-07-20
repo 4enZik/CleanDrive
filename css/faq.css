@@ -1,0 +1,97 @@
+/* ==========================================================================
+   БЛОК 9: FAQ АККОРДЕОН (СТРОГО ПОД ТВОЙ КОД)
+   ========================================================================== */
+.faq-block {
+    padding: 120px 20px;
+    border-top: 1px solid var(--border-color);
+    width: 100% !important;
+}
+
+.faq-container {
+    max-width: 850px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    width: 100%;
+}
+
+/* Твоя кликабельная шапка */
+.faq-question {
+    padding: 25px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Твой родной span с плюсиком */
+.faq-question span {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+    display: inline-block;
+    line-height: 1;
+    margin-left: 20px;
+}
+
+/* ХОВЕРЫ И АКТИВНЫЕ СОСТОЯНИЯ */
+.faq-item.active {
+    border-color: rgba(197, 168, 128, 0.3) !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3) !important;
+}
+.faq-item.active .faq-question {
+    color: var(--accent) !important;
+}
+.faq-item.active .faq-question span {
+    color: var(--accent) !important;
+}
+
+/* ==========================================================================
+   ЖЕСТКИЙ СКРЫВАЛЬЩИК ОТВЕТОВ (БЕЗ КОСТЫЛЕЙ)
+   ========================================================================== */
+.faq-answer {
+    display: none !important; /* В базе ответы НАГЛУХО ЗАПЕРТЫ на ПК и телефонах */
+    width: 100% !important;
+}
+
+/* Когда скрипт выдает класс active карточке — блок проявляется */
+.faq-item.active .faq-answer {
+    display: block !important; 
+}
+
+/* Твой родной тег p с текстом ответа */
+.faq-answer p {
+    padding: 0 35px 30px 35px;
+    font-size: 14px;
+    color: #b0b5bc;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* АДАПТИВ ДЛЯ МОБИЛОК */
+@media (max-width: 768px) {
+    .faq-block { padding: 60px 15px !important; }
+    .faq-question { padding: 20px !important; font-size: 14px !important; }
+    .faq-answer p { padding: 0 20px 20px 20px !important; font-size: 13px !important; }
+    .faq-item { transform: none !important; perspective: none !important; }
+}

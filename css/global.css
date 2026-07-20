@@ -1,0 +1,82 @@
+:root {
+    --bg-dark: #0a0b0d;
+    --bg-card: #131518;
+    --accent: #c5a880; /* Платиновое золото */
+    --text-white: #ffffff;
+    --text-muted: #7e848c;
+    --border-color: rgba(255, 255, 255, 0.05);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overflow-x: hidden !important; }
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+section {
+    width: 100% !important;
+    max-width: 1200px;
+    padding: 100px 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.section-title { font-size: 36px; font-weight: 300; text-align: center; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; font-family: 'Syncopate', sans-serif; }
+.section-desc { text-align: center; color: var(--text-muted); margin-bottom: 50px; }
+
+/* ТОТАЛЬНЫЙ БРОНЕБОЙНЫЙ ЩИТ ОТ СКРОЛЛА */
+@media (max-width: 768px) {
+    html, body, main, section, div, footer {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}
+
+
+/* ==========================================================================
+   КИНЕМАТОГРАФИЧНЫЕ БЕСКОНЕЧНЫЕ АНИМАЦИИ (ГЛУБОКИЙ ВЫЛЕТ)
+   ========================================================================== */
+
+/* Базовое скрытое состояние: элементы глубоко внизу и размыты */
+.anim-fade-up {
+    opacity: 0;
+    transform: translateY(80px) scale(0.98); /* Сдвиг увеличен + легкое уменьшение для объема */
+    filter: blur(5px); /* Легкий дорогой расфокус в темноте */
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.8s ease,
+                filter 0.8s ease !important;
+    will-change: transform, opacity, filter;
+}
+
+.anim-fade-left {
+    opacity: 0;
+    transform: translateX(-80px) scale(0.98);
+    filter: blur(5px);
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.8s ease,
+                filter 0.8s ease !important;
+    will-change: transform, opacity, filter;
+}
+
+/* 3. Элемент плавно выплывает СПРАВА НАЛЕВО */
+.anim-fade-right {
+    opacity: 0;
+    transform: translateX(80px) scale(0.98); /* Изначально смещен вправо на 80px */
+    filter: blur(5px);
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.8s ease,
+                filter 0.8s ease !important;
+    will-change: transform, opacity, filter;
+}
+
+/* Активное состояние — элемент сочно встает на место, блёр исчезает */
+.anim-fade-up.show,
+.anim-fade-right.show,
+.anim-fade-left.show {
+    opacity: 1 !important;
+    transform: translateY(0) translateX(0) scale(1) !important;
+    filter: blur(0) !important;
+}

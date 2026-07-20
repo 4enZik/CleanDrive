@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CleanDrive Detailing | Премиум</title>
+    <!-- ГЛОБАЛЬНАЯ БАЗА (ВСЕГДА ПЕРВАЯ) -->
+    <link rel="stylesheet" href="css/global.css">
+
+    <!-- КОМПОНЕНТЫ САЙТА CLEANDRIVE -->
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/process.css">
+    <link rel="stylesheet" href="css/services.css">
+    <link rel="stylesheet" href="css/comlex.css">
+    <link rel="stylesheet" href="css/subscribe.css">
+    <link rel="stylesheet" href="css/benefits.css">
+    <link rel="stylesheet" href="css/back.css">
+    <link rel="stylesheet" href="css/reviews.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="css/faq.css">
+    <link rel="stylesheet" href="css/contacts.css">
+    <link rel="stylesheet" href="css/map.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/advantages.css">
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <!-- БЛОК 1: ШАПКА (HEADER) -->
+    <header class="main-header">
+        <div class="header-container">
+            
+            <!-- Логотип -->
+            <a href="#" class="logo-link">
+                <div class="logo">Clean<span>Drive</span></div>
+            </a>
+
+            <!-- Меню для ПК -->
+            <nav class="nav-menu">
+                <a href="#portfolio">Портфолио</a>
+                <a href="#process">Процесс</a>
+                <a href="#services">Услуги</a>
+                <a href="#complex-services">Комплексы</a>
+                <a href="#prices">Подписки</a>
+                <a href="#benefits">Преимущества</a>
+                <a href="#reviews">Отзывы</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+
+            <!-- Контакты для ПК -->
+            <div class="header-right-side">
+                <div class="header-socials">
+                    <a href="https://www.instagram.com/bcleandrive/" target="_blank" rel="noopener noreferrer" class="header-social-icon insta">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <a href="https://connect.viber.com/business/f5dc1c84-5b8e-11f1-89f9-e2af75cf31d2" class="header-social-icon viber">
+                        <svg viewBox="0 0 24 24"><path d="M22.28 15.42c-.41-.65-1.12-1.05-1.89-1.07-.7-.02-1.37.3-1.82.84l-.53.64c-.3.37-.81.47-1.22.22-.72-.44-1.57-.96-2.3-1.69-.73-.73-1.25-1.58-1.69-2.3-.25-.41-.15-.92.22-1.22l.64-.53c.54-.45.86-1.12.84-1.82-.02-.77-.42-1.48-1.07-1.89L11.53 5c-.56-.35-1.26-.39-1.86-.1-.6.29-1.01.86-1.11 1.52C8.21 8.87 9.53 12.44 12 14.91c2.47 2.47 6.04 3.79 8.49 3.44.66-.1 1.23-.51 1.52-1.11.29-.6.25-1.3-.1-1.86l-1.63-2.03zM16 2.05S19 3 21 5s3 5 3 5-1 .5-1.5 0S21.5 8 20.5 7 17.5 5.5 17 5s.5-1.5-1-2.95zM15 0s5 1 7 4 4 7 4 7-1 .5-2 0-3.5-3.5-4.5-4.5-3.5-3.5-4.5-4.5.5-2 0-2z"/></svg>
+                    </a>
+                </div>
+                <a href="tel:+375447187294" class="header-phone">8-044-718-72-94</a>
+            </div>
+
+            <!-- ИСПРАВЛЕННАЯ КНОПКА-БУРГЕР (Свободный элемент внутри контейнера) -->
+            <button class="mobile-burger" id="burgerBtn" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+    </header>
+
+    <!-- БЛОК 2: ПРИВЕТСТВИЕ (HERO) -->
+    <section class="hero-block" id="about">
+        <div class="hero-container">
+            <div class="hero-text">
+                <span class="subtitle">Добро пожаловать в</span>
+                <h1 class="main-title">Clean<span>Drive</span></h1>
+                <p class="address">г. Берёза, ул. Кречет, д. 50</p>
+                <a href="#contacts" class="btn-premium">Запись на прием</a>
+            </div>
+            <!-- Интерактивная 3D-карточка с машиной -->
+            <div class="hero-3d-card anim-fade-left" data-tilt>
+                <div class="card-bg"></div>
+                <div class="card-gloss"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 2.5: КЛЮЧЕВЫЕ ПРЕИМУЩЕСТВА (PORSCHE DESIGN С ИКОНКАМИ) -->
+    <section class="hero-features-block">
+        <div class="features-grid anim-fade-up">
+            
+            <!-- Преимущество 1: Материалы -->
+            <div class="feature-item" data-tilt>
+                <div class="feature-icon-box">
+                    <!-- Серая тусклая иконка -->
+                    <img src="./images/advantages/material_black.png" alt="Материалы" class="feat-icon-base">
+                    <!-- Белая неоновая иконка -->
+                    <img src="./images/advantages/material_white.png" alt="Материалы" class="feat-icon-hover">
+                </div>
+                <h3>Материалы</h3>
+                <p>Мы используем химию без резкого запаха. Наши составы не оставляют токсичного налёта на поверхностях и сохраняют свежий воздух в салоне.</p>
+            </div>
+
+            <!-- Преимущество 2: Оборудование -->
+            <div class="feature-item" data-tilt>
+                <div class="feature-icon-box">
+                    <img src="./images/advantages/equipment_black.png" alt="Оборудование" class="feat-icon-base">
+                    <img src="./images/advantages/equipment_white.png" alt="Оборудование" class="feat-icon-hover">
+                </div>
+                <h3>Современное оборудование</h3>
+                <p>Мы используем профессиональные парогенераторы, мощные экстракторы и торнадоры последнего поколения для идеального результата.</p>
+            </div>
+
+            <!-- Преимущество 3: Комплексная уборка -->
+            <div class="feature-item" data-tilt>
+                <div class="feature-icon-box">
+                    <img src="./images/advantages/clean_black.png" alt="Комплексная уборка" class="feat-icon-base">
+                    <img src="./images/advantages/clean_white.png" alt="Комплексная уборка" class="feat-icon-hover">
+                </div>
+                <h3>Комплексная уборка</h3>
+                <p>Полное преображение вашего автомобиля: от глубокой химчистки сидений и ковролина до деликатной очистки потолка и багажника.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- БЛОК 3: НАШ ПРОЦЕСС (PROCESS) -->
+    <section class="process-block" id="process">
+        <h2 class="section-title">Наш процесс</h2>
+        <div class="process-grid">
+            
+            <!-- Шаг 1 -->
+            <div class="process-item anim-fade-up" data-tilt>
+                <div class="process-icon-box">
+                    <img src="./images/process/reserv_black.png" alt="Reserv" class="proc-icon-base">
+                    <img src="./images/process/reserv_white.png" alt="Reserv" class="proc-icon-hover">
+                </div>
+                <div class="step-num">01</div>
+                <h3>Бронирование</h3>
+                <p>Оформление заявки на удобное время</p>
+            </div>
+
+            <!-- Шаг 2 -->
+            <div class="process-item anim-fade-up" data-tilt>
+                <div class="process-icon-box">
+                    <img src=".//images/process/inspection_black.png" alt="Ispect" class="proc-icon-base">
+                    <img src="./images/process/inspection_white.png" alt="Ispect" class="proc-icon-hover">
+                </div>
+                <div class="step-num">02</div>
+                <h3>Осмотр</h3>
+                <p>Наши мастера оценят фронт работ</p>
+            </div>
+
+            <!-- Шаг 3 -->
+            <div class="process-item anim-fade-up" data-tilt>
+                <div class="process-icon-box">
+                    <img src="./images/process/mark_black.png" alt="Mark" class="proc-icon-base">
+                    <img src="./images/process/mark_white.png" alt="Mark" class="proc-icon-hover">
+                </div>
+                <div class="step-num">03</div>
+                <h3>Оценка</h3>
+                <p>Наши мастера назовут примерную стоимость</p>
+            </div>
+
+            <!-- Шаг 4 -->
+            <div class="process-item anim-fade-up" data-tilt>
+                <div class="process-icon-box">
+                    <img src="./images/process/work_black.png" alt="Work" class="proc-icon-base">
+                    <img src="./images/process/work_white.png" alt="Work" class="proc-icon-hover">
+                </div>
+                <div class="step-num">04</div>
+                <h3>Завершение</h3>
+                <p>Наши мастера выполняют работы</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ПРЕМИУМ РАЗДЕЛИТЕЛЬ С ЭФФЕКТОМ ФИКСИРОВАННОГО ФОНА (MERCEDES STYLE) -->
+    <section class="fixed-bg-section">
+        <div class="fixed-bg-overlay"></div>
+        <div class="fixed-bg-content">
+            <span class="fixed-badge">CleanDrive Detailing</span>
+            <h2>Добро пожаловать в зону абсолютного комфорта</h2>
+            <p>Мы не просто чистим салон. Мы возвращаем вашему автомобилю первозданную текстуру дорогой кожи, матовость пластика и неповторимый запах нового авто.</p>
+        </div>
+    </section>
+
+    <!-- БЛОК 4: НАШИ УСЛУГИ (ОБНОВЛЕННЫЙ ПРЕМИУМ) -->
+    <section class="services-block" id="services">
+        <div class="services-header">
+            <span class="services-badge">Price-list</span>
+            <h2 class="section-title">Наши услуги для вас</h2>
+            <p class="section-desc">Стоимость зависит от класса и типа кузова вашего автомобиля</p>
+        </div>
+        
+        <div class="services-grid anim-fade-up">
+            
+            <!-- 1. Чистка передней панели -->
+            <div class="service-wrapper" data-tilt>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('images/cleans/clean_torpedo.jpg');"></div>
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <h3>Чистка передней панели (торпедо)</h3>
+                        <div class="service-prices">
+                            <div class="price-row"><span>Седан</span><b>от 30 руб.</b></div>
+                            <div class="price-row"><span>Универсал</span><b>от 40 руб.</b></div>
+                            <div class="price-row"><span>Минивен</span><b>от 50 руб.</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Чистка сидения тканевое -->
+            <div class="service-wrapper" data-tilt>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('images/cleans/clean_cloth.jpg');"></div>
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <h3>Чистка сидения тканевое <small>(1 единица)</small></h3>
+                        <div class="service-prices">
+                            <div class="price-row single"><span>Общая</span><b>от 20 руб.</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Чистка сидения кожаное -->
+            <div class="service-wrapper" data-tilt>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('images/cleans/clean_skin.jpg');"></div>
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <h3>Чистка сидения кожаное <small>(1 единица)</small></h3>
+                        <div class="service-prices">
+                            <div class="price-row single"><span>Общая</span><b>от 30 руб.</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Чистка дверных карт -->
+            <div class="service-wrapper" data-tilt>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('images/cleans/clean_doors.jpg');"></div>
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <h3>Чистка дверных карт</h3>
+                        <div class="service-prices">
+                            <div class="price-row"><span>Седан</span><b>от 60 руб.</b></div>
+                            <div class="price-row"><span>Универсал</span><b>от 60 руб.</b></div>
+                            <div class="price-row"><span>Минивен</span><b>от 80 руб.</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Чистка потолка -->
+            <div class="service-wrapper" data-tilt>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('images/cleans/clean_ceiling.jpg');"></div>
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <h3>Чистка потолка</h3>
+                        <div class="service-prices">
+                            <div class="price-row single"><span>Общая</span><b>от 60 руб.</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Чистка напольного покрытия -->
+            <div class="service-wrapper" data-tilt>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('images/cleans/clean_floor.jpg');"></div>
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <h3>Чистка напольного покрытия</h3>
+                        <div class="service-prices">
+                            <div class="price-row single"><span>Общая</span><b>от 60 руб.</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Чистка ковриков -->
+            <div class="service-wrapper" data-tilt>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('images/cleans/clean_rug.jpg');"></div>
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <h3>Чистка ковриков <small>(4 единицы)</small></h3>
+                        <div class="service-prices">
+                            <div class="price-row single"><span>Общая</span><b>от 40 руб.</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Чистка детского кресла -->
+            <div class="service-wrapper" data-tilt>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('images/cleans/clean_child_sites.jpg');"></div>
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <h3>Чистка детского кресла</h3>
+                        <div class="service-prices">
+                            <div class="price-row single"><span>Общая</span><b>от 40 руб.</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. Чистка багажника -->
+            <div class="service-wrapper" data-tilt>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('images/cleans/clean_back.jpg');"></div>
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <h3>Чистка багажника</h3>
+                        <div class="service-prices">
+                            <div class="price-row single"><span>Общая</span><b>от 40 руб.</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- БЛОК 5: КОМПЛЕКСНЫЕ УСЛУГИ (MERCEDES STYLE) -->
+    <section class="complex-block" id="complex-services">
+        <div class="complex-header">
+            <span class="complex-badge">Complexes</span>
+            <h2 class="section-title">Комплексные услуги</h2>
+            <p class="section-desc">Максимальный уход и выгода при выборе готовых пакетов химчистки</p>
+        </div>
+        
+        <div class="complex-grid anim-fade-left">
+            
+            <!-- 1. Влажная уборка салона -->
+            <div class="complex-wrapper" data-tilt>
+                <div class="complex-card">
+                    <div class="complex-img" style="background-image: url('images/complex/wash_complex.jpg');"></div>
+                    <div class="complex-overlay"></div>
+                    <div class="complex-content">
+                        <h3>Влажная уборка салона</h3>
+                        <p class="complex-short-desc">Полная влажная уборка салона</p>
+                        <div class="complex-prices">
+                            <div class="price-row single"><span>Общая</span><b>от 30 руб.</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Комплексная уборка салона -->
+            <div class="complex-wrapper" data-tilt>
+                <div class="complex-card featured"> <!-- Класс featured подсветит эту карточку как топ-выбор -->
+                    <div class="complex-img" style="background-image: url('images/complex/all_complex.jpg');"></div>
+                    <div class="complex-overlay"></div>
+                    <div class="complex-content">
+                        <h3>Комплексная уборка салона</h3>
+                        <p class="complex-short-desc">Уборка багажника и салона пылесосом, чистка стёкол и обработка панелей</p>
+                        <div class="complex-prices">
+                            <div class="price-row"><span>Седан / Хэтчбек</span><b>от 50 руб.</b></div>
+                            <div class="price-row"><span>Универсал</span><b>от 60 руб.</b></div>
+                            <div class="price-row"><span>Минивен</span><b>от 70 руб.</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Проф. уборка салона -->
+            <div class="complex-wrapper" data-tilt>
+                <div class="complex-card">
+                    <div class="complex-img" style="background-image: url('images/complex/prof_complex.jpg');"></div>
+                    <div class="complex-overlay"></div>
+                    <div class="complex-content">
+                        <h3>Проф. уборка салона</h3>
+                        <p class="complex-short-desc">Полная премиальная химчистка вашего авто</p>
+                        <div class="complex-prices">
+                            <div class="price-row"><span>Седан</span><b>250 руб.</b></div>
+                            <div class="price-row"><span>Универсал</span><b>280 руб.</b></div>
+                            <div class="price-row"><span>Минивен</span><b>350 руб.</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- БЛОК 6: ГОДОВЫЕ ПОДПИСКИ (ОБНОВЛЕННЫЙ ТЕКСТ) -->
+    <section class="subs-block" id="prices">
+        <div class="subs-header">
+            <span class="subs-main-badge">Premium club</span>
+            <h2 class="section-title">Годовые подписки</h2>
+            <p class="section-desc">Услуги без ограничений и персональный уход за вашим авто круглый год</p>
+        </div>
+        
+        <div class="subs-grid anim-fade-left">
+            
+            <!-- 1. BRONZE -->
+            <div class="sub-wrapper" data-tilt>
+                <div class="sub-card card-bronze">
+                    <div class="sub-badge">Bronze</div>
+                    <h3>Базовая подписка - "Чистый салон круглый год"</h3>
+                    <div class="sub-price">900 руб.</div>
+                    <ul class="sub-list">
+                        <li>4 глубокие химчистки (раз в квартал)</li>
+                        <li>4 экспресс-уборки между ними</li>
+                        <li>Скидка 10% на любые доп. услуги</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 2. SILVER -->
+            <div class="sub-wrapper" data-tilt>
+                <div class="sub-card card-silver">
+                    <div class="sub-badge">Silver</div>
+                    <h3>Семейный пакет - "Для тех, у кого дети и собаки"</h3>
+                    <div class="sub-price">1 000 руб.</div>
+                    <ul class="sub-list">
+                        <li>4 химчистки</li>
+                        <li>4 удаления запаха/озонация</li>
+                        <li>2 чистки детских кресел</li>
+                        <li>2 чистки багажника</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 3. GOLD -->
+            <div class="sub-wrapper" data-tilt>
+                <div class="sub-card card-gold">
+                    <div class="sub-badge">Gold</div>
+                    <h3>Премиум пакет - "Салон как новый"</h3>
+                    <div class="sub-price">1 500 руб.</div>
+                    <ul class="sub-list">
+                        <li>6 глубоких химчисток</li>
+                        <li>6 экспресс-уборок</li>
+                        <li>Защита пластика/кожи 2 раза в год</li>
+                        <li>Озонация 2 раза в год</li>
+                        <li>Приоритетная запись</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- БЛОК 6.5: ПРЕИМУЩЕСТВА И ГАРАНТИИ (MERCEDES STYLE) -->
+    <section class="benefits-block" id="benefits">
+        <div class="benefits-container">
+            
+            <!-- Левая сторона: картинка в 3D обертке -->
+            <div class="benefits-img-wrapper anim-fade-left" data-tilt>
+                <div class="benefits-image-card"></div>
+            </div>
+
+            <!-- Правая сторона: тексты и списки -->
+            <div class="benefits-content anim-fade-up">
+                <span class="benefits-badge">CleanDrive Quality</span>
+                <h2>Профессиональная чистка вашего автомобиля</h2>
+                <p class="benefits-main-desc">Профессиональный уход, который продлевает жизнь интерьеру вашего авто и делает каждую поездку комфортной.</p>
+                
+                <!-- Сетки со списками -->
+                <div class="benefits-lists-grid">
+                    <div class="benefits-list-col">
+                        <h4>Почему выбирают нас:</h4>
+                        <ul>
+                            <li>Опытные мастера.</li>
+                            <li>Премиальная химия.</li>
+                            <li>Внимание к мелочам.</li>
+                            <li>Гарантия качества.</li>
+                            <li>Удобный сервис.</li>
+                            <li>Возможность оформить подписку.</li>
+                        </ul>
+                    </div>
+                    <div class="benefits-list-col">
+                        <h4>Что вы получаете:</h4>
+                        <ul>
+                            <li>Эстетика.</li>
+                            <li>Здоровье.</li>
+                            <li>Свежесть.</li>
+                            <li>Первозданный вид салона.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Звонок/Бронирование -->
+                <div class="benefits-cta">
+                    <h3>Для бронирования звоните:</h3>
+                    <a href="tel:80447187294" class="benefits-phone">8-044-718-72-94</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+   <!-- БЛОК 7: ОТЗЫВЫ КЛИЕНТОВ (C КОНТЕНТОМ С СКРИНШОТА) -->
+    <section class="reviews-block" id="reviews">
+        <div class="reviews-container">
+            
+            <!-- Левая сторона: Список оригинальных отзывов -->
+            <div class="reviews-list">
+                
+                <!-- Отзыв 1: Михаил К. -->
+                <div class="review-wrapper anim-fade-up" data-tilt>
+                    <div class="review-item">
+                        <div class="quote-icon">“</div>
+                        <p class="review-text">Решил освежить салон и обратился в CleanDrive. Результат превзошёл ожидания! Салон выглядит так, будто машина только из автосалона. Окупается каждый рубль, сделали всё за один день. Рекомендую!</p>
+                        <span class="review-author">— Михаил К.</span>
+                    </div>
+                </div>
+
+                <!-- Отзыв 2: Анна В. -->
+                <div class="review-wrapper anim-fade-up" data-tilt>
+                    <div class="review-item">
+                        <div class="quote-icon">“</div>
+                        <p class="review-text">У кого есть дети, поймут: разлитый сок, крошки и т.д. Ребята из CleanDrive сотворили чудо и отчистили даже застарелые пятна на заднем сиденье. Очень порадовало, что химия без резкого запаха - для меня как для мамы это критично! Спасибо за безопасность и чистоту.</p>
+                        <span class="review-author">— Анна В.</span>
+                    </div>
+                </div>
+
+                <!-- Отзыв 3: Дмитрий В. -->
+                <div class="review-wrapper anim-fade-up" data-tilt>
+                    <div class="review-item">
+                        <div class="quote-icon">“</div>
+                        <p class="review-text">У меня золотистый ретривер, так что шерсть в багажнике вечная проблема + специфический запах. В этой химчистке идеально убрали каждую волосинку и запах. Машина снова пахнет свежестью!</p>
+                        <span class="review-author">— Дмитрий В.</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Правая сторона: Заголовок и затонированная картинка химчистки -->
+            <div class="reviews-right-col anim-fade-right">
+                <div class="reviews-header-side">
+                    <span class="reviews-badge">Feedback</span>
+                    <h2 class="section-title-side">Отзывы</h2>
+                </div>
+                
+                <div class="reviews-img-wrapper" data-tilt>
+                    <div class="reviews-image">
+                        <!-- Локальная картинка или качественный исходник процесса химчистки -->
+                        <div class="rev-img-inner" style="background-image: url('images/rewies.jpg');"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- БЛОК 8: НАШЕ ПОРТФОЛИО-КАРУСЕЛЬ СО СТРЕЛКАМИ -->
+    <section class="portfolio-block" id="portfolio">
+        <div class="portfolio-header">
+            <span class="portfolio-badge">Our Works</span>
+            <h2 class="section-title">Наше портфолио работ</h2>
+            <p class="section-desc">Вы можете оценить качество перед звонком</p>
+        </div>
+
+        <!-- Контейнер слайдера -->
+        <div class="portfolio-slider-container anim-fade-left">
+            
+            <!-- Кнопки управления (Стрелки) -->
+            <button class="slider-arrow prev-arrow" id="portPrevBtn">
+                <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <button class="slider-arrow next-arrow" id="portNextBtn">
+                <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+
+            <!-- Видимое окно просмотра -->
+            <div class="portfolio-slider-viewport">
+                <!-- Движущаяся лента с карточками -->
+                <div class="portfolio-slider-track">
+                    
+                    <!-- Кейс 1 -->
+                    <div class="portfolio-wrapper" data-tilt>
+                        <div class="portfolio-case-card">
+                            <div class="case-split-zone before-zone" style="background-image: url('images/before-after/portf_1.jpg');">
+                                <span class="case-label label-before">До</span>
+                            </div>
+                            <div class="case-split-zone after-zone" style="background-image: url('images/before-after/portf_1_rez.jpg');">
+                                <span class="case-label label-after">После</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Кейс 2 -->
+                    <div class="portfolio-wrapper" data-tilt>
+                        <div class="portfolio-case-card">
+                            <div class="case-split-zone before-zone" style="background-image: url('images/before-after/portf_2.jpg');">
+                                <span class="case-label label-before">До</span>
+                            </div>
+                            <div class="case-split-zone after-zone" style="background-image: url('images/before-after/portf_2_rez.JPG');">
+                                <span class="case-label label-after">После</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Кейс 3 --> 
+                    <div class="portfolio-wrapper" data-tilt>
+                        <div class="portfolio-case-card">
+                            <div class="case-split-zone before-zone" style="background-image: url('images/before-after/portf_3.jpg');">
+                                <span class="case-label label-before">До</span>
+                            </div>
+                            <div class="case-split-zone after-zone" style="background-image: url('images/before-after/portf_3_rez.jpg');">
+                                <span class="case-label label-after">После</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Кейс 4 -->
+                    <div class="portfolio-wrapper" data-tilt>
+                        <div class="portfolio-case-card">
+                            <div class="case-split-zone before-zone" style="background-image: url('images/before-after/portf_4.jpg');">
+                                <span class="case-label label-before">До</span>
+                            </div>
+                            <div class="case-split-zone after-zone" style="background-image: url('images/before-after/portf_4_rez.jpg');">
+                                <span class="case-label label-after">После</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Кейс 5 -->
+                    <div class="portfolio-wrapper" data-tilt>
+                        <div class="portfolio-case-card">
+                            <div class="case-split-zone before-zone" style="background-image: url('images/before-after/portf_5.jpg');">
+                                <span class="case-label label-before">До</span>
+                            </div>
+                            <div class="case-split-zone after-zone" style="background-image: url('images/before-after/portf_5_rez.jpg');">
+                                <span class="case-label label-after">После</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Кейс 6 -->
+                    <div class="portfolio-wrapper" data-tilt>
+                        <div class="portfolio-case-card">
+                            <div class="case-split-zone before-zone" style="background-image: url('images/before-after/portf_6.jpg');">
+                                <span class="case-label label-before">До</span>
+                            </div>
+                            <div class="case-split-zone after-zone" style="background-image: url('images/before-after/portf_6_rez.jpg');">
+                                <span class="case-label label-after">После</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- БЛОК 9: FAQ (ВОПРОСЫ И ОТВЕТЫ) -->
+    <section class="faq-block" id="faq">
+        <h2 class="section-title">Часто задаваемые вопросы</h2>
+        <div class="faq-container">
+            <div class="faq-item anim-fade-up">
+                <div class="faq-question">Сколько времени занимает комплексная химчистка? <span>+</span></div>
+                <div class="faq-answer"><p>В среднем глубокая чистка занимает от 6 до 12 часов в зависимости от степени загрязнения салона и габаритов автомобиля.</p></div>
+            </div>
+            <div class="faq-item anim-fade-up">
+                <div class="faq-question">Сможете ли вы удалить застарелые пятна (от кофе, вина и т.д)? <span>+</span></div>
+                <div class="faq-answer"><p>Мы справляемся с 98% видов пятен. Для сложных загрязнений
+                    подбирается специальные точечные пятновыводители. Что
+                    касается въевшихся запахов (сигаретный дым, последствия
+                    перевозки животных, сырость) - мы рекомендуем дополнить
+                    химчистку озонированием. Озон
+                    сможет уничтожить бактерии и молекулы запаха на глубоком
+                    уровне, а не просто маскирует их.</p></div>
+            </div>
+            <div class="faq-item anim-fade-up">
+                <div class="faq-question">Не повредится ли электрика в машине и не провиснет ли потолок
+                после чистки? <span>+</span></div>
+                <div class="faq-answer"><p>Исключено. Наши мастера строго соблюдают технологию для
+                    каждой зоны авто. Приборную панель, блоки кнопок и зоны
+                    возле мультимедиа мы чистим вручную с минимальным
+                    количеством влаги или с помощью сухого пара. Потолок
+                    обрабатывается максимально деликатно, без избыточного
+                    размачивания, что полностью предотвращает его отслоение и
+                    провисание. На все работы мы даем официальную гарантию.</p></div>
+            </div>
+            <div class="faq-item anim-fade-up">
+                <div class="faq-question">Какие материалы и составы вы используете? <span>+</span></div>
+                <div class="faq-answer"><p>Мы используем только биоразлагаемую гипоаллергенную химию премиум-класса, которая безопасна для детей и животных и не оставляет резких запахов.</p></div>
+            </div>
+            <div class="faq-item anim-fade-up">
+                <div class="faq-question">Нужно ли записываться заранее? <span>+</span></div>
+                <div class="faq-answer"><p>Да, для обеспечения максимального качества и внимания к каждой детали мы работаем строго по предварительной записи.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 10: СВЯЖИТЕСЬ С НАМИ (ОБНОВЛЕННЫЕ ЖИВЫЕ ССЫЛКИ) -->
+    <section class="contacts-block" id="contacts">
+        <div class="contacts-header">
+            <span class="contacts-badge">Contact</span>
+            <h2 class="section-title">Свяжитесь с нами</h2>
+            <p class="section-desc">Выберите удобный способ для консультации или быстрой записи</p>
+        </div>
+
+        <div class="contacts-grid">
+            
+            <!-- Левая карточка: Социальные сети и мессенджеры -->
+            <div class="contacts-wrapper anim-fade-left" data-tilt>
+                <div class="contacts-info-card">
+                    <h3>CleanDrive Detailing</h3>
+                    
+                    <div class="contact-links-list">
+                        <!-- Ссылка на Instagram (открывает в новой вкладке) -->
+                        <a href="https://www.instagram.com/bcleandrive/" target="_blank" rel="noopener noreferrer" class="contact-row-link">
+                            <span class="contact-icon">📱</span>
+                            <div class="contact-text-block">
+                                <span class="contact-label">Instagram</span>
+                                <span class="contact-value">@cleandrive</span>
+                            </div>
+                        </a>
+
+                        <!-- Ссылка на Viber (автоматически открывает чат в приложении) -->
+                        <a href="https://connect.viber.com/business/f5dc1c84-5b8e-11f1-89f9-e2af75cf31d2" class="contact-row-link">
+                            <span class="contact-icon">💬</span>
+                            <div class="contact-text-block">
+                                <span class="contact-label">Viber</span>
+                                <span class="contact-value">@CleanDrive</span>
+                            </div>
+                        </a>
+
+                        <!-- Ссылка на Телефон (на смартфонах сразу запускает вызов) -->
+                        <a href="tel:+375447187294" class="contact-row-link">
+                            <span class="contact-icon">📞</span>
+                            <div class="contact-text-block">
+                                <span class="contact-label">Телефон</span>
+                                <span class="contact-value">+375 (44) 718-72-94</span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Правая колонка: Время работы и Адрес -->
+            <div class="contacts-meta-grid anim-fade-right">
+                
+                <!-- Часы работы -->
+                <div class="contacts-wrapper" data-tilt>
+                    <div class="meta-box time-box">
+                        <span class="meta-icon">🕒</span>
+                        <h4>Часы работы</h4>
+                        <p>Пн-Пт: 09:00 - 20:00</p>
+                        <p class="meta-subtext">Суббота — по записи</p>
+                    </div>
+                </div>
+
+                <!-- Местоположение -->
+                <div class="contacts-wrapper" data-tilt>
+                    <div class="meta-box geo-box">
+                        <span class="meta-icon">📍</span>
+                        <h4>Местоположение</h4>
+                        <p>г. Берёза, ул. Кречет, д. 50</p>
+                        <p class="meta-subtext">Брестская область</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- БЛОК 11: ПРЕМИУМ КАРТА (ЖЕЛЕЗНАЯ ПРЯМАЯ ССЫЛКА НА КАРТЫ) -->
+     <section class="map-section-new">
+        <!-- Статичная обертка, которая ловит мышь, но сама НЕ наклоняется -->
+        <div class="map-wrapper anim-fade-up" data-tilt>
+            <!-- Ссылка, которая будет плавно наклоняться внутри -->
+            <a href="https://yandex.by/maps/102221/beryoza/?ll=24.995426%2C52.529002&mode=poi&poi%5Bpoint%5D=24.995401%2C52.528740&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D138873268501&z=17.31" target="_blank" class="map-link-container">
+                <div class="map-image-bg"></div>
+                <div class="map-card-info">
+                    <span class="map-badge">Открыть навигатор</span>
+                    <h3>г. Берёза, ул. Кречет, 50</h3>
+                    <p>Нажмите, чтобы построить маршрут в Яндекс Картах</p>
+                </div>
+            </a>
+        </div>
+    </section>
+    <!-- БЛОК 12: КЛЮЧЕВОЙ ПОДВАЛ САЙТА (PORSCHE HORIZONTAL STYLE) -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            
+            <!-- Левый блок: Логотип -->
+            <div class="footer-left">
+                <div class="footer-logo">Clean<span>Drive</span></div>
+                <p class="footer-tagline">Premium Detailing Bureau</p>
+            </div>
+
+            <!-- Центральный блок: Иконки соцсетей РЯДОМ в один ряд -->
+            <div class="footer-center">
+                <span class="footer-social-label">Мы в сети:</span>
+                <div class="footer-socials-row">
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/bcleandrive/" target="_blank" rel="noopener noreferrer" class="footer-social-icon insta" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <!-- Viber -->
+                    <a href="https://connect.viber.com/business/f5dc1c84-5b8e-11f1-89f9-e2af75cf31d2" class="footer-social-icon viber" aria-label="Viber">
+                        <svg viewBox="0 0 24 24"><path d="M22.28 15.42c-.41-.65-1.12-1.05-1.89-1.07-.7-.02-1.37.3-1.82.84l-.53.64c-.3.37-.81.47-1.22.22-.72-.44-1.57-.96-2.3-1.69-.73-.73-1.25-1.58-1.69-2.3-.25-.41-.15-.92.22-1.22l.64-.53c.54-.45.86-1.12.84-1.82-.02-.77-.42-1.48-1.07-1.89L11.53 5c-.56-.35-1.26-.39-1.86-.1-.6.29-1.01.86-1.11 1.52C8.21 8.87 9.53 12.44 12 14.91c2.47 2.47 6.04 3.79 8.49 3.44.66-.1 1.23-.51 1.52-1.11.29-.6.25-1.3-.1-1.86l-1.63-2.03zM16 2.05S19 3 21 5s3 5 3 5-1 .5-1.5 0S21.5 8 20.5 7 17.5 5.5 17 5s.5-1.5-1-2.95zM15 0s5 1 7 4 4 7 4 7-1 .5-2 0-3.5-3.5-4.5-4.5-3.5-3.5-4.5-4.5.5-2 0-2z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Правый блок: Горизонтальные ссылки на ВСЕ блоки сайта -->
+            <div class="footer-right">
+                <nav class="footer-nav">
+                    <a href="#portfolio">Портфолио</a>
+                    <a href="#process">Процесс</a>
+                    <a href="#services">Услуги</a>
+                    <a href="#complex-services">Комплексы</a>
+                    <a href="#prices">Подписки</a>
+                    <a href="#benefits">Преимущества</a>
+                    <a href="#reviews">Отзывы</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#contacts">Контакты</a>
+                </nav>
+            </div>
+
+        </div>
+        
+        <!-- Нижняя плашка копирайта -->
+        <div class="footer-bottom-bar">
+            <p>&copy; 2026 CleanDrive. All Rights Reserved</p>
+        </div>
+    </footer>
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <button class="mobile-menu-close" id="closeMenuBtn">&times;</button>
+        <nav class="mobile-nav-links">
+            <a href="#portfolio">Портфолио</a>
+            <a href="#process">Процесс</a>
+            <a href="#services">Услуги</a>
+            <a href="#complex-services">Комплексы</a>
+            <a href="#prices">Подписки</a>
+            <a href="#benefits">Преимущества</a>
+            <a href="#reviews">Отзывы</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+        <div class="mobile-menu-footer">
+            <a href="tel:+375447187294" class="mobile-menu-phone">8-044-718-72-94</a>
+        </div>
+    </div>
+
+    <!-- Подключаем новый JS для функционала -->
+    <script src="scripts/faq.js"></script>
+    <!-- Скрипт для 3D эффекта -->
+    <script src="scripts/script.js"></script>
+    <script src="scripts/portfolio-slider.js"></script>
+    <script src="scripts/mobile-menu.js"></script>
+    <script src="scripts/scroll-animation.js"></script>
+</body>
+</html>

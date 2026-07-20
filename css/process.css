@@ -1,0 +1,180 @@
+/* ==========================================================================
+   БЛОК 3: НАШ ПРОЦЕСС (СТРОГО ПОД ТВОЙ HTML И АДАПТИВ)
+   ========================================================================== */
+.process-block {
+    padding: 100px 20px;
+    width: 100% !important;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 25px;
+    width: 100%;
+}
+
+/* Твоя родная карточка */
+.process-item {
+    background: var(--bg-card);
+    padding: 40px 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transform-style: preserve-3d;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    transition: transform 0.1s ease-out, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Контейнер для двух слоев иконки сверху */
+.process-icon-box {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    margin-bottom: 25px;
+    transform: translateZ(30px); /* Парит выше всех */
+}
+
+.process-icon-box img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: contain;
+    transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Обычное состояние: неоновая скрыта, серая приглушена */
+.proc-icon-base {
+    opacity: 0.35;
+}
+.proc-icon-hover {
+    opacity: 0;
+}
+
+/* Твой номер шага */
+.step-num {
+    font-size: 36px;
+    color: rgba(255, 255, 255, 0.04);
+    font-weight: 800;
+    font-family: 'Syncopate', sans-serif;
+    line-height: 1;
+    margin-bottom: 15px;
+    transition: color 0.4s ease;
+    transform: translateZ(15px);
+}
+
+.process-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 10px;
+    transform: translateZ(25px);
+}
+
+.process-item p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    font-weight: 300;
+    transform: translateZ(20px);
+}
+
+/* ==========================================================================
+   ИНТЕРАКТИВНЫЙ ХОВЕР НА ПК
+   ========================================================================== */
+.process-item:hover {
+    border-color: rgba(197, 164, 118, 0.3);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+/* Зажигаем неоновую белую иконку */
+.process-item:hover .proc-icon-base { opacity: 0; }
+.process-item:hover .proc-icon-hover { opacity: 1; }
+
+/* Подсвечиваем номер шага золотом */
+.process-item:hover .step-num {
+    color: rgba(201, 166, 116, 0.5);
+}
+
+/* ==========================================================================
+   БРОНЕБОЙНЫЙ АДАПТИВ (БЕЗ СКРОЛЛА)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    /* Сетка жестко держит 2 аккуратные колонки */
+    .process-grid { 
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 25px !important; 
+    }
+    
+    .process-item {
+        /* На планшетах гасим 3D-перспективу, чтобы карточки не косило от пальцев */
+        perspective: none !important;
+        transform: none !important;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.3) !important;
+        border-color: var(--border-color) !important;
+    }
+
+    /* МАГИЯ ТАЧ-СКРИНА: Неоновые белые иконки на iPad горят СРАЗУ, без ховеров */
+    .proc-icon-base { 
+        opacity: 0 !important; /* Серую тусклую иконку полностью гасим */
+    }
+    .proc-icon-hover { 
+        opacity: 1 !important; /* Белая неоновая копия горит на 100% со старта */
+    }
+
+    /* Номера шагов сразу подсвечиваем фирменным золотом */
+    .step-num { 
+        color: rgba(197, 168, 128, 0.15) !important; 
+        transform: none !important;
+    }
+    
+    .process-item h3,
+    .process-item p {
+        transform: none !important;
+    }
+
+    /* СБРОС ЛЮБЫХ ПК-ХОВЕРОВ ПРИ НАЖАТИИ ПАЛЬЦЕМ:
+       Намертво запрещаем элементам менять яркость или цвет при тапе. Они зафиксированы в одном идеальном состоянии! */
+    .process-item:hover {
+        transform: none !important;
+        border-color: var(--border-color) !important;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.3) !important;
+    }
+    .process-item:hover .proc-icon-base { 
+        opacity: 0 !important; 
+    }
+    .process-item:hover .proc-icon-hover { 
+        opacity: 1 !important; /* Яркость неона при тапе останется ТАКОЙ ЖЕ, вспышек больше не будет */
+    }
+    .process-item:hover .step-num {
+        color: rgba(197, 168, 128, 0.15) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .process-block { 
+        padding: 60px 15px !important; 
+    }
+    .process-grid { 
+        display: block !important; 
+    }
+    .process-item { 
+        width: 100% !important; 
+        max-width: 100% !important; 
+        perspective: none !important; 
+        transform: none !important; 
+        margin-bottom: 20px !important;
+        padding: 30px 25px !important;
+    }
+    .process-item:last-child { 
+        margin-bottom: 0 !important; 
+    }
+    
+    /* На мобилках всё сразу горит сочностью */
+    .proc-icon-base { opacity: 0 !important; }
+    .proc-icon-hover { opacity: 1 !important; }
+    .step-num { color: rgba(201, 166, 116, 0.5) !important; }
+}

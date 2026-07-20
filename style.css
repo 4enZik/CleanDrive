@@ -1,0 +1,2160 @@
+:root {
+    --bg-dark: #0a0b0d;        /* Глубокий матовый черный */
+    --bg-card: #131518;       /* Карточки с мелкой текстурой */
+    --accent: #c5a880;        /* Платиновое золото */
+    --text-white: #ffffff;
+    --text-muted: #7e848c;
+    --border-color: rgba(255, 255, 255, 0.05);
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden !important; /* Отсекает вылеты вбок, не трогая цвета и фоны */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ФИКСИРОВАННАЯ ПРЕМИУМ ШАПКА */
+.main-header {
+    position: fixed !important; /* !important намертво блокирует любые перебивания стиля */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Фиксируем высоту */
+    
+    /* Эффект матового стекла */
+    background: rgba(10, 11, 13, 0.8) ;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    
+    border-bottom: 1px solid var(--border-color);
+    z-index: 99999 !important; /* Поднимаем выше всех 3D-карточек, чтобы они не перекрывали меню */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%; /* Растягиваем контейнер на все 80px высоты шапки */
+}
+.logo { font-size: 22px; font-weight: 700; letter-spacing: 1px; }
+.logo span { color: var(--accent); }
+.nav-menu a { color: var(--text-white); text-decoration: none; margin: 0 15px; font-size: 14px; transition: 0.3s; }
+.nav-menu a:hover { color: var(--accent); }
+
+/* ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ БЛОКОВ */
+section {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.section-title {
+    font-size: 36px;
+    font-weight: 300;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.section-desc { text-align: center; color: var(--text-muted); margin-bottom: 50px; }
+
+/* БЛОК 2: HERO С 3D КАРТОЧКОЙ */
+.hero-block { 
+    display: flex; 
+    align-items: center; 
+    min-height: 90vh; 
+    font-family: 'Montserrat', sans-serif; 
+    padding-top: 100px; /* Этот отступ компенсирует высоту шапки */
+}
+
+.hero-container { 
+    display: flex; 
+    width: 100%; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+/* Увеличили ширину, чтобы широкий шрифт влезал красиво */
+.hero-text { 
+    max-width: 650px; 
+    text-align: left;
+}
+
+.subtitle { 
+    font-family: 'Syncopate', sans-serif;
+    font-weight: 700;
+    color: var(--accent); 
+    text-transform: uppercase; 
+    letter-spacing: 6px; 
+    font-size: 11px; 
+}
+
+/* ТОТ САМЫЙ АГРЕССИВНЫЙ ТРАФАРЕТНЫЙ СТИЛЬ */
+.main-title { 
+    font-family: 'Syncopate', sans-serif;
+    font-size: 78px; 
+    font-weight: 700; 
+    text-transform: uppercase;
+    letter-spacing: -2px; 
+    margin: 20px 0; 
+    
+    color: transparent;
+    -webkit-text-stroke: 1px #ffffff; 
+}
+
+/* Заливка для второй половины слова */
+.main-title span {
+    color: #ffffff;
+    -webkit-text-stroke: none;
+}
+
+.btn-premium {
+    display: inline-block;
+    padding: 18px 40px;
+    border: 1px solid var(--accent);
+    color: var(--text-white);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 3px;
+    transition: 0.4s;
+    margin-top: 30px;
+}
+
+.btn-premium:hover { 
+    background: var(--accent); 
+    color: #000; 
+    box-shadow: 0 15px 30px rgba(197, 168, 128, 0.2); 
+}
+
+/* МАСШТАБИРОВАННЫЙ 3D КОНТЕЙНЕР С ТЕНЯМИ И ПОДСВЕТКОЙ */
+.hero-3d-card {
+    width: 620px; /* Увеличили ширину (было 550) */
+    height: 460px; /* Увеличили высоту (было 420) */
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    position: relative;
+    transform-style: preserve-3d;
+    
+    /* Дорогой глубокий эмбиент-свет сзади карточки (золотой платины) */
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6), 
+                0 0 40px rgba(197, 168, 128, 0.03); 
+                
+    /* Изначальный легкий элегантный разворот в пространстве */
+    transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease;
+}
+
+.hero-3d-card:hover {
+    /* При наведении карточка разворачивается к пользователю лицом и плавно приближается */
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.03);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.8), 
+                0 0 60px rgba(197, 168, 128, 0.08); /* Свечение сзади становится ярче */
+}
+
+.card-bg {
+    position: absolute;
+    width: 94%;
+    height: 94%;
+    top: 3%;
+    left: 3%;
+    background: url('images/hero-car.jpg') center/cover no-repeat;
+    border-radius: 2px;
+    
+    filter: grayscale(0.4) brightness(0.35) contrast(1.3) saturate(0.6);
+    mix-blend-mode: luminosity;
+    opacity: 0.85;
+    
+    transform: translateZ(50px);
+    
+    /* КИНЕМАТИЧЕСКАЯ ПЛАВНОСТЬ (Время увеличено до 0.8с + кривая инерции) */
+    transition: filter 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                mix-blend-mode 0.8s ease;
+    
+    /* Подсказка браузеру оптимизировать пересчет фильтров и 3D */
+    will-change: filter, transform, opacity; 
+}
+
+/* НАЕЗД КАРТИНКИ ПРИ ХОВЕРЕ */
+.hero-3d-card:hover .card-bg {
+    filter: grayscale(0.1) brightness(0.6) contrast(1.2) saturate(0.8);
+    mix-blend-mode: normal;
+    opacity: 1;
+    transform: translateZ(80px) scale(1.02); /* Картинка вылетает из рамки еще сильнее */
+}
+
+.card-gloss {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 50%);
+    transform: translateZ(60px); /* Парит выше всех, создавая эффект защитного стекла */
+    pointer-events: none;
+}
+
+/* БЛОК 3: ПРОЦЕСС */
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+.process-item {
+    background: var(--bg-card);
+    padding: 40px 30px;
+    border: 1px solid var(--border-color);
+    transform-style: preserve-3d;
+    transition: box-shadow 0.3s;
+}
+.process-item:hover { box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+.step-num { font-size: 48px; color: rgba(255,255,255,0.03); font-weight: 800; transform: translateZ(30px); }
+
+/* БЛОК-РАЗДЕЛИТЕЛЬ С ФИКСИРОВАННЫМ ФОНОМ */
+.fixed-bg-section {
+    position: relative;
+    width: 100%;
+    max-width: 100% !important; /* Разрываем стандартную сетку на всю ширину экрана */
+    height: 60vh; /* Высота блока — 60% от высоты экрана */
+    margin: 60px 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* ФОНОВАЯ МАГИЯ MERCEDES */
+    background-image: url('images/back_block_3_4.jpg'); /* Сюда можно закинуть сочное фото салона */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* ЖЕСТКО ФИКСИРУЕТ КАРТИНКУ ПРИ СКРОЛЛЕ */
+}
+
+/* Темное матовое напыление поверх картинки, чтобы текст читался идеально */
+.fixed-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 11, 13, 0.65); /* Затемнение */
+    backdrop-filter: brightness(0.8) contrast(1.1);
+    z-index: 1;
+}
+
+/* Контент поверх зафиксированного фона */
+.fixed-bg-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.fixed-badge {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 15px;
+}
+
+.fixed-bg-content h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; /* Элегантный строгий шрифт как на скрине */
+    font-size: 42px;
+    font-weight: 300;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.fixed-bg-content p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   ОБНОВЛЕННЫЙ ПРЕМИУМ БЛОК УСЛУГ
+   ========================================================================== */
+.services-block {
+    padding: 120px 20px;
+}
+.services-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.services-badge {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* Сетка 3х3 */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) !important; /* Строго 3 колонки */
+    gap: 30px;
+}
+
+/* 3D-Обертка для стабильности мыши */
+.service-wrapper {
+    perspective: 1000px;
+    height: 380px; /* Фиксированная высота карточки */
+}
+
+/* Корпус карточки (Матовое глубокое стекло) */
+.service-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transition: transform 0.1s ease-out, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Фоновая картинка внутри */
+.service-img {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    /* Изначально сильно темная и матовая */
+    filter: grayscale(0.5) brightness(0.2) contrast(1.2);
+    transform: scale(1.05);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Градиентный матовый оверлей */
+.service-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Градиент уходит в полную темноту снизу, чтобы читался текст */
+    background: linear-gradient(to top, rgba(10, 11, 13, 0.95) 0%, rgba(10, 11, 13, 0.4) 60%, rgba(10, 11, 13, 0.7) 100%);
+    z-index: 1;
+    transition: background 0.4s ease;
+}
+
+/* Текстовый контент (Парит над оверлеем) */
+.service-content {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%;
+    padding: 35px;
+    z-index: 2;
+    transform: translateZ(30px); /* Эффект глубины */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.service-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+.service-content h3 small {
+    display: block;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+
+/* Блок с ценами (плавно выезжает при ховере) */
+.service-prices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0.3; /* Изначально слегка приглушен */
+    transform: translateY(10px);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    padding-bottom: 6px;
+    font-size: 14px;
+}
+.price-row:last-child { border: none; }
+
+.price-row span {
+    color: var(--text-muted);
+    font-weight: 300;
+}
+.price-row b {
+    color: var(--accent); /* Золотой акцент для цены */
+    font-family: 'Syncopate', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Для одиночных цен убираем нижнюю рамку */
+.price-row.single {
+    border: none;
+    background: rgba(197, 168, 128, 0.05);
+    padding: 10px 15px;
+    border-radius: 4px;
+    border-left: 2px solid var(--accent);
+}
+
+/* ==========================================================================
+   ИНТЕРАКТИВНЫЙ ПРЕМИУМ ЭФФЕКТ (HOVER CODES)
+   ========================================================================== */
+.service-wrapper:hover .service-card {
+    border-color: rgba(197, 168, 128, 0.3); /* Рамка начинает слегка подсвечиваться золотом */
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+}
+
+.service-wrapper:hover .service-img {
+    /* Подняли яркость с 0.5 до 0.85, убрали черно-белый тон и добавили сочности */
+    filter: grayscale(0) brightness(0.85) contrast(1.2) saturate(1.1) !important; 
+    transform: scale(1.03); /* Легкий, едва заметный наезд камеры для объема */
+}
+
+.service-wrapper:hover .service-overlay {
+    /* Градиент снизу становится плотнее, защищая читаемость белого текста и золотых цен */
+    background: linear-gradient(to top, rgba(10, 11, 13, 0.98) 0%, rgba(10, 11, 13, 0.7) 50%, rgba(10, 11, 13, 0.3) 100%) !important;
+}
+
+.service-wrapper:hover .service-content {
+    transform: translateZ(50px) translateY(-5px); /* Текст выходит еще сильнее вперед */
+}
+
+.service-wrapper:hover .service-prices {
+    opacity: 1;
+    transform: translateY(0); /* Цены плавно встают на место */
+}
+
+/* ==========================================================================
+   БЛОК 5: КОМПЛЕКСНЫЕ УСЛУГИ (PREMIUM)
+   ========================================================================== */
+.complex-block {
+    padding: 120px 20px;
+    border-top: 1px solid var(--border-color);
+}
+.complex-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.complex-badge {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 15px;
+}
+
+.complex-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) !important; /* Базово 3 колонки на ПК */
+    gap: 30px;
+}
+
+.complex-wrapper {
+    perspective: 1000px;
+    height: 420px; /* Комплексы чуть выше обычных услуг, так как текста больше */
+}
+
+.complex-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Создает плавную темную вуаль снизу вверх, в которой "тонет" белый пар с фото */
+    background: linear-gradient(to top, 
+        rgba(10, 11, 13, 0.95) 0%, 
+        rgba(10, 11, 13, 0.65) 45%, 
+        rgba(10, 11, 13, 0.1) 100%) !important;
+    z-index: 1;
+    transition: background 0.4s ease;
+}
+
+.complex-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transition: transform 0.1s ease-out, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Выделение центральной карточки тонкой золотой рамкой */
+.complex-card.featured {
+    border-color: rgba(197, 168, 128, 0.4);
+    box-shadow: 0 20px 50px rgba(197, 168, 128, 0.05);
+}
+
+.complex-img {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(0.4) brightness(0.18) contrast(1.2); /* Глубокий матовый тон */
+    transform: scale(1.05);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+
+.complex-content {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%;
+    padding: 35px;
+    z-index: 2;
+    transform: translateZ(30px);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.complex-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.complex-short-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+.complex-prices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0.3;
+    transform: translateY(10px);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ИНТЕРАКТИВНЫЙ ХОВЕР НА ПК */
+.complex-wrapper:hover .complex-card {
+    border-color: rgba(197, 168, 128, 0.5);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+}
+.complex-wrapper:hover .complex-img {
+    filter: grayscale(0) brightness(0.45) contrast(1.2) saturate(1.1) !important;
+    transform: scale(1.02);
+}
+.complex-wrapper:hover .complex-content {
+    transform: translateZ(50px) translateY(-5px);
+}
+.complex-wrapper:hover .complex-prices {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.complex-wrapper:hover .complex-overlay {
+    background: linear-gradient(to top, 
+        rgba(10, 11, 13, 0.98) 0%, 
+        rgba(10, 11, 13, 0.75) 50%, 
+        rgba(10, 11, 13, 0.2) 100%) !important;
+}
+
+/* БЛОК 5 */
+.complex-grid, .subs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.complex-card, .sub-card {
+    background: var(--bg-card);
+    padding: 40px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transform-style: preserve-3d;
+}
+
+.subs-block {
+    padding: 120px 20px;
+    border-top: 1px solid var(--border-color);
+}
+.subs-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.subs-main-badge {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 15px;
+}
+
+.subs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) !important; /* На ПК строго 3 колонки */
+    gap: 30px;
+}
+
+.sub-wrapper {
+    perspective: 1000px;
+    height: 350px;
+}
+
+/* Базовый строгий корпус карточки */
+.sub-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 50px 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Мелкий текст внутри */
+.sub-badge {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 6px 20px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    font-weight: 700;
+    transform: translateZ(20px);
+}
+.sub-price {
+    font-size: 42px;
+    font-weight: 700;
+    font-family: 'Syncopate', sans-serif;
+    margin-bottom: 20px;
+    transform: translateZ(40px);
+}
+.sub-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    font-weight: 300;
+    max-width: 250px;
+    transform: translateZ(20px);
+}
+
+.sub-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #ffffff;
+    margin-bottom: 15px;
+    min-height: 44px; /* Фиксирует высоту заголовка, чтобы цены не прыгали */
+    transform: translateZ(25px);
+}
+
+.sub-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+    text-align: left; /* Текст списка выравниваем по левому краю для удобства чтения */
+    width: 100%;
+    transform: translateZ(20px);
+}
+
+.sub-list li {
+    font-size: 13px;
+    color: #b0b5bc;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+    font-weight: 300;
+}
+
+/* Красивые кастомные золотые маркеры вместо синих галочек */
+.sub-list li::before {
+    content: '•';
+    position: absolute;
+    left: 5px;
+    top: -1px;
+    color: var(--accent); /* Точки горят платиновым золотом */
+    font-size: 16px;
+}
+
+/* Увеличиваем высоту карточки подписки, так как контента стало больше */
+.sub-wrapper {
+    height: 440px !important; 
+}
+
+/* --------------------------------------------------------------------------
+   УНИКАЛЬНЫЕ СТИЛИ ДЛЯ КАЖДОГО МЕТАЛЛА (БАЗА И ХОВЕР)
+   -------------------------------------------------------------------------- */
+
+/* 1. БРОНЗА (Благородная матовая медь) */
+.card-bronze .sub-badge { background: rgba(205, 127, 50, 0.15); color: #cd7f32; border: 1px solid rgba(205, 127, 50, 0.3); }
+.card-bronze .sub-price { color: #de9b5d; }
+
+.sub-wrapper:hover .card-bronze {
+    border-color: rgba(205, 127, 50, 0.5);
+    background: linear-gradient(135deg, #131518 0%, #1a1512 100%); /* Плавный уход фона в бронзовый тон */
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 40px rgba(205, 127, 50, 0.08); /* Медное неоновое свечение */
+}
+
+/* 2. СЕРЕБРО (Холодная платина) */
+.card-silver .sub-badge { background: rgba(224, 224, 224, 0.1); color: #e0e0e0; border: 1px solid rgba(224, 224, 224, 0.2); }
+.card-silver .sub-price { color: #ffffff; }
+
+.sub-wrapper:hover .card-silver {
+    border-color: rgba(224, 224, 224, 0.4);
+    background: linear-gradient(135deg, #131518 0%, #17191d 100%); /* Матовый стальной фон */
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 40px rgba(255, 255, 255, 0.05); /* Белое платиновое свечение */
+}
+
+/* 3. ЗОЛОТО (Флагманский VIP статус) */
+.card-gold .sub-badge { background: rgba(197, 168, 128, 0.15); color: var(--accent); border: 1px solid rgba(197, 168, 128, 0.3); }
+.card-gold .sub-price { color: var(--accent); }
+
+.sub-wrapper:hover .card-gold {
+    border-color: rgba(197, 168, 128, 0.6);
+    background: linear-gradient(135deg, #131518 0%, #1c1813 100%); /* Глубокий золотистый фон */
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 50px rgba(197, 168, 128, 0.12); /* Богатый золотой амбиент-свет */
+}
+
+/* ==========================================================================
+   БЛОК 6.5: ИНФО-БЛОК ПРЕИМУЩЕСТВ (PREMIUM LOOK)
+   ========================================================================== */
+.benefits-block {
+    padding: 120px 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.benefits-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+/* 3D-Обертка для картинки слева */
+.benefits-img-wrapper {
+    width: 45%;
+    height: 550px;
+    perspective: 1000px;
+}
+.benefits-image-card {
+    width: 100%;
+    height: 100%;
+    background: url('images/us.jpg') center/cover no-repeat;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    filter: grayscale(0.2) brightness(0.7) contrast(1.1); /* Премиальный глубокий тон */
+    transition: transform 0.1s ease-out, filter 0.4s ease;
+    will-change: transform;
+}
+.benefits-img-wrapper:hover .benefits-image-card {
+    filter: grayscale(0) brightness(0.85) contrast(1.1);
+}
+
+/* Правая сторона */
+.benefits-content {
+    width: 50%;
+    text-align: left;
+}
+.benefits-badge {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 15px;
+}
+.benefits-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 38px;
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+.benefits-main-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+/* Сетки списков */
+.benefits-lists-grid {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+.benefits-list-col {
+    width: 50%;
+}
+.benefits-list-col h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+.benefits-list-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.benefits-list-col li {
+    font-size: 14px;
+    color: #b0b5bc;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 22px;
+    font-weight: 300;
+}
+/* Кастомный золотой маркер вместо уродских красных галочек */
+.benefits-list-col li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent); /* Галочки горят платиновым золотом */
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* Блок призыва к действию (CTA) */
+.benefits-cta h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+.benefits-phone {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--accent) !important;
+    text-decoration: none;
+    letter-spacing: -1px;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+.benefits-phone:hover {
+    color: #ffffff !important;
+}
+
+/* БЛОК 7: ОТЗЫВЫ */
+.reviews-block {
+    padding: 120px 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.reviews-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+/* Левая широкая колонка с карточками */
+.reviews-list {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.review-wrapper {
+    perspective: 1000px;
+    width: 100%;
+}
+
+.review-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 35px 40px;
+    position: relative;
+    transform-style: preserve-3d;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    transition: transform 0.1s ease-out, border-color 0.4s ease;
+}
+
+/* Элегантная фоновая кавычка вместо синей из конструктора */
+.quote-icon {
+    position: absolute;
+    top: 10px;
+    right: 35px;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 82px;
+    font-weight: 700;
+    color: rgba(197, 168, 128, 0.04); /* Легкий платиновый оттенок */
+    line-height: 1;
+    pointer-events: none;
+    transform: translateZ(10px);
+}
+
+.review-text {
+    font-size: 14px;
+    color: #b0b5bc;
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+    transform: translateZ(25px);
+}
+
+.review-author {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent); /* Имена авторов горят благородным золотом */
+    letter-spacing: 0.5px;
+    transform: translateZ(20px);
+}
+
+/* Правая колонка: Заголовок + Картинка */
+.reviews-right-col {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.reviews-header-side {
+    text-align: left;
+}
+.reviews-badge {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 10px;
+}
+.section-title-side {
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Syncopate', sans-serif;
+    color: #ffffff;
+}
+
+.reviews-img-wrapper {
+    width: 100%;
+    perspective: 1000px;
+}
+.reviews-image {
+    width: 100%;
+    height: 440px; /* Высота под пропорции скриншота */
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 12px;
+    transform-style: preserve-3d;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transition: transform 0.1s ease-out;
+}
+.rev-img-inner {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 2px;
+    filter: grayscale(0.2) brightness(0.45) contrast(1.15); /* Премиум матовый авто-фильтр */
+    transform: translateZ(40px);
+    transition: filter 0.4s ease;
+}
+
+/* ИНТЕРАКТИВНЫЕ ХОВЕРЫ НА КОМПЬЮТЕРАХ */
+.review-wrapper:hover .review-item {
+    border-color: rgba(197, 168, 128, 0.3);
+}
+.reviews-img-wrapper:hover .rev-img-inner {
+    filter: grayscale(0) brightness(0.65) contrast(1.1); /* Проявление при наведении */
+}
+
+/* ==========================================================================
+   БЛОК 8: ПОРТФОЛИО-КАРУСЕЛЬ (MERCEDES STYLE)
+   ========================================================================== */
+.portfolio-block {
+    padding: 120px 20px;
+    border-top: 1px solid var(--border-color);
+}
+.portfolio-header { text-align: center; margin-bottom: 60px; }
+.portfolio-badge {
+    font-family: 'Syncopate', sans-serif; font-size: 11px; text-transform: uppercase;
+    letter-spacing: 4px; color: var(--accent); display: block; margin-bottom: 15px;
+}
+
+/* Главный контейнер карусели */
+.portfolio-slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Окно просмотра (прячет карточки, вылетающие за границы экрана) */
+.portfolio-slider-viewport {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0; /* Место под 3D-вылет карточек */
+}
+
+/* Бегущая лента с карточками */
+.portfolio-slider-track {
+    display: flex;
+    gap: 25px; /* Зазор между карточками */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Плавный инерционный сдвиг */
+    will-change: transform;
+}
+
+/* Жесткие размеры карточки внутри слайдера на ПК (4 штуки в ряд) */
+.portfolio-wrapper {
+    flex: 0 0 calc((100% - (25px * 3)) / 4) !important;
+    perspective: 1000px;
+    height: 440px; /* Чуть уменьшили общую высоту, так как без текста карточки не должны быть слишком вытянутыми */
+}
+
+/* Корпус карточки */
+.portfolio-case-card {
+    position: relative; width: 100%; height: 100%;
+    background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px;
+    overflow: hidden; display: flex; flex-direction: column; transform-style: preserve-3d;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4); transition: transform 0.1s ease-out, border-color 0.4s ease;
+}
+
+.case-split-zone {
+    position: relative;
+    width: 100%;
+    height: 50% !important; /* Каждая зона занимает ровно половину карточки */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: filter 0.4s ease;
+}
+.before-zone {
+    border-bottom: 1px solid var(--border-color) !important; /* Тонкая премиальная линия вместо глухого стыка */
+    filter: grayscale(0.3) brightness(0.25) contrast(1.1);
+}
+.after-zone { filter: grayscale(0.1) brightness(0.4) contrast(1.15); }
+
+.case-label {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 10px; /* Чуть увеличили для читаемости */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 5px 14px;
+    border-radius: 2px;
+    font-weight: 700;
+    z-index: 5; /* Чтобы шильдик всегда парил поверх фильтров картинки */
+}
+
+/* "ДО" ТЕПЕРЬ ЯРКОЕ, СТАЛЬНОЕ И ЧИТАЕМОЕ */
+.label-before {
+    background: rgba(255, 255, 255, 0.28) !important; /* Светлая матовая подложка */
+    color: #e6ecf3 !important; /* Яркий стальной белый цвет */
+    border: 1px solid rgba(255, 255, 255, 0.3) !important; /* Четкая контурная рамка */
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* "ПОСЛЕ" ОСТАЕТСЯ ФЛАГМАНСКИМ ЗОЛОТЫМ */
+.label-after {
+    background: rgba(197, 168, 128, 0.15) !important;
+    color: var(--accent) !important;
+    border: 1px solid rgba(197, 168, 128, 0.4) !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+.case-info-bar { width: 100%; height: 12%; background: #131518; display: flex; align-items: center; justify-content: center; padding: 0 15px; border-top: 1px solid var(--border-color); }
+.case-info-bar h3 { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 400; color: #ffffff; text-align: center; }
+
+/* КРУГЛЫЕ ПРЕМИУМ СТРЕЛКИ С УПРАВЛЕНИЕМ С ЗАЩИТОЙ ТАПА */
+.slider-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 46px; height: 46px;
+    background: rgba(19, 21, 24, 0.9);
+    border: 1px solid var(--border-color); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; z-index: 100; transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+.slider-arrow svg { width: 22px; height: 22px; fill: var(--text-muted); transition: fill 0.3s ease; }
+.slider-arrow:hover { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 20px rgba(197, 168, 128, 0.2); }
+.slider-arrow:hover svg { fill: #000; }
+
+.prev-arrow { left: -23px; } /* Слегка выносим стрелки на края рамки для стиля */
+.next-arrow { right: -23px; }
+
+/* ХОВЕРЫ ДЛЯ ПК */
+.portfolio-wrapper:hover .portfolio-case-card { border-color: rgba(197, 168, 128, 0.3); }
+.portfolio-wrapper:hover .after-zone { filter: grayscale(0) brightness(0.75) contrast(1.1) saturate(1.1); }
+
+/* ==========================================================================
+   ИНТЕРАКТИВНЫЙ ХОВЕР НА ПК
+   ========================================================================== */
+.portfolio-wrapper:hover .portfolio-case-card {
+    border-color: rgba(197, 168, 128, 0.3);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+}
+
+/* При наведении мышки верхняя зона "ДО" становится светлее и отчетливее */
+.portfolio-wrapper:hover .before-zone {
+    filter: grayscale(0.1) brightness(0.8) contrast(1.1) !important;
+}
+
+/* Нижняя зона "ПОСЛЕ" вспыхивает на максимум, показывая идеальный детейлинг */
+.portfolio-wrapper:hover .after-zone {
+    filter: grayscale(0) brightness(0.8) contrast(1.1) saturate(1.1) !important;
+}
+
+/* БЛОК 9: FAQ (АККОРДЕОН) */
+.faq-container { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--border-color); margin-bottom: 15px; }
+.faq-question { padding: 25px 10px; font-size: 18px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
+.faq-question:hover { color: var(--accent); }
+.faq-question span { transition: transform 0.4s; font-weight: 300; }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+.faq-answer p { padding: 0 10px 25px 10px; color: var(--text-muted); line-height: 1.6; }
+.faq-item.active .faq-question span { transform: rotate(45deg); color: var(--accent); }
+
+/* ==========================================================================
+   БЛОК 10: СВЯЖИТЕСЬ С НАМИ (PREMIUM LOOK)
+   ========================================================================== */
+.contacts-block {
+    padding: 120px 20px;
+    border-top: 1px solid var(--border-color);
+}
+.contacts-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.contacts-badge {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* Сетка: левая карточка шире, правые боксы делят остаток */
+.contacts-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr !important;
+    gap: 30px;
+    align-items: stretch !important; /* Растягивает левую карточку и ПРАВУЮ СЕТКУ по высоте */
+}
+
+.contacts-meta-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    height: 100% !important; /* Намертво растягивает саму правую сетку */
+}
+
+.contacts-meta-grid .contacts-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important; /* Заставляет обертку занять ровно половину высоты блока */
+}
+
+
+/* Левая большая карточка */
+.contacts-info-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 45px;
+    height: 100%;
+    transform-style: preserve-3d;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transition: transform 0.1s ease-out, border-color 0.4s ease;
+}
+.contacts-info-card h3 {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+    margin-bottom: 35px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    transform: translateZ(20px);
+}
+
+/* Превращаем строки в дорогие интерактивные ссылки */
+.contact-links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transform: translateZ(30px);
+}
+.contact-row-link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 25px;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    -webkit-tap-highlight-color: transparent;
+}
+.contact-icon {
+    font-size: 22px;
+    transition: transform 0.4s ease;
+}
+.contact-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.contact-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+.contact-value {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Ховер-эффект кнопок контактов */
+.contact-row-link:hover {
+    background: rgba(197, 168, 128, 0.04);
+    border-color: rgba(197, 168, 128, 0.3);
+    transform: translateY(-2px);
+}
+.contact-row-link:hover .contact-value {
+    color: var(--accent); /* Текст загорается платиновым золотом */
+}
+.contact-row-link:hover .contact-icon {
+    transform: scale(1.15);
+}
+
+/* Правые информационные боксы */
+.meta-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 45px; 
+    
+    width: 100% !important;
+    height: 100% !important; /* ТЕПЕРЬ ОНА ФИЗИЧЕСКИ ОБЯЗАНА РАСТЯНУТЬСЯ НА ВСЮ ВЫСОТУ ОБЕРТКИ */
+    
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important; /* Текст встает идеально по центру вертикали */
+    align-items: flex-start !important;
+    
+    position: relative;
+    transform-style: preserve-3d;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transition: transform 0.1s ease-out, border-color 0.4s ease;
+}
+.meta-icon {
+    position: absolute;
+    top: 35px; 
+    right: 40px;
+    font-size: 24px;
+    opacity: 0.25;
+    transform: translateZ(10px);
+}
+.meta-box h4 {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    transform: translateZ(20px);
+}
+.meta-box p {
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: 400;
+    line-height: 1.5;
+    transform: translateZ(25px);
+}
+.meta-subtext {
+    font-size: 12px;
+    color: var(--text-muted) !important;
+    margin-top: 4px;
+    font-weight: 300;
+    transform: translateZ(20px);
+}
+
+/* ХОВЕРЫ ДЛЯ КАРТОЧЕК НА ПК */
+.contacts-wrapper:hover .contacts-info-card,
+.contacts-wrapper:hover .meta-box {
+    border-color: rgba(197, 168, 128, 0.3);
+}
+
+/* НОВЫЙ БЛОК ПРЕМИУМ КАРТЫ */
+.map-section-new {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Статичный контейнер для отслеживания мыши */
+.map-wrapper {
+    width: 100%;
+    height: 450px;
+    perspective: 1000px; /* Задает глубину 3D для внутренних элементов */
+}
+
+/* Элемент, который физически наклоняется */
+.map-link-container {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text-white);
+    
+    transform-style: preserve-3d;
+    will-change: transform;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    /* Убираем любые дефолтные задержки */
+    transition: transform 0.1s ease-out; 
+}
+
+.map-image-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/map.png') center/cover no-repeat;
+    filter: grayscale(1) brightness(0.25) contrast(1.2);
+    pointer-events: none; /* Мышь полностью игнорирует картинку */
+    transform: scale(1.05); /* Легкий запас по краям, чтобы при наклоне не лезли черные швы */
+}
+
+/* Элегантная карточка, которая парит над картой */
+.map-card-info {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    background: rgba(19, 21, 24, 0.85);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    border-radius: 4px;
+    max-width: 400px;
+    
+    transform: translateZ(30px); /* Выталкиваем текст вперед в 3D */
+    pointer-events: none; /* Мышь кликает насквозь по ссылке */
+}
+
+/* БЛОК 12: ПРЕМИУМ ПОДВАЛ */
+.main-footer {
+    padding: 40px 20px 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-wrapper {
+    width: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 60px 60px 30px 60px;
+    
+    /* Оставляем наклон только здесь */
+    perspective: 1000px;
+    will-change: transform;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    
+    /* Смягчаем анимацию, чтобы хитбоксы ссылок не отставали от картинки */
+    transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.footer-inner-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 40px;
+    
+    /* УБРАЛИ translateZ, чтобы ссылки не смещались относительно курсора */
+    transform: none; 
+}
+
+/* Копирайт */
+.footer-bottom {
+    margin-top: 30px;
+    text-align: center;
+    
+    /* УБРАЛИ translateZ */
+    transform: none; 
+}
+
+/* Левая сторона */
+.footer-brand-col {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.footer-logo {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.footer-logo span {
+    color: var(--accent);
+}
+
+/* Стильные круглые кнопки соцсетей */
+.footer-socials {
+    display: flex;
+    gap: 15px;
+}
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+.social-link svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--text-muted);
+    transition: fill 0.3s ease;
+}
+.social-link:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 5px 15px rgba(197, 168, 128, 0.3);
+}
+.social-link:hover svg {
+    fill: #000; /* Иконка становится черной на золотом фоне */
+}
+
+/* Правая сторона */
+.footer-links-col h4 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 20px;
+    font-weight: 500;
+    text-align: right;
+}
+.footer-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+}
+.footer-menu a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+.footer-menu a:hover {
+    color: var(--text-white);
+}
+
+/* Копирайт */
+.footer-bottom {
+    margin-top: 30px;
+    text-align: center;
+    transform: translateZ(15px);
+}
+.footer-bottom p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   ПРЕМИУМ АДАПТИВНОСТЬ (ПЛАНШЕТЫ, НОУТБУКИ, СМАРТФОНЫ)
+   ========================================================================== */
+
+/* 1. ДЛЯ НОУТБУКОВ И СРЕДНИХ ЭКРАНОВ (до 1024px) */
+@media (max-width: 1024px) {
+    section {
+        padding: 80px 30px; /* Слегка уменьшаем гигантские отступы */
+    }
+
+    /* АДАПТИВ ДЛЯ HERO (ГЛАВНЫЙ ЭКРАН) */
+    .hero-container {
+        flex-direction: column; /* Текст и 3D-карточка встают друг под друга */
+        gap: 50px;
+        text-align: center;
+    }
+
+    .hero-text {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-title {
+        font-size: 64px; /* Немного уменьшаем гигантский заголовок под планшеты */
+    }
+
+    .hero-wrapper {
+        width: 100%;
+        max-width: 550px; /* Ограничиваем, чтобы карточка не разлеталась на весь экран */
+        height: 400px;
+    }
+
+    /* ИСПРАВЛЕНИЕ СЕТОК ДЛЯ БЛОКА УСЛУГ И ОСТАЛЬНЫХ */
+    /* Перестраиваем сетку с 3-4 колонок строго на 2 колонки */
+    .process-grid,
+    .subs-grid,
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 25px;
+    }
+
+    .services-grid {
+        display: flex !important; /* Временно переключаем сетку на флексы */
+        flex-wrap: wrap; /* Разрешаем перенос карточек на новые строки */
+        justify-content: center; /* ЦЕНТРИРУЕМ ВСЕ ЭЛЕМЕНТЫ, ВКЛЮЧАЯ ПОСЛЕДНИЙ */
+        gap: 25px;
+    }
+
+    /* ФИКС ДЛЯ СЛАЙДЕРА ДО/ПОСЛЕ В ПОРТФОЛИО */
+    /* Растягиваем слайдер, чтобы он занимал всю ширину новой двухколоночной сетки */
+    .portfolio-item-slider {
+        grid-column: span 2 !important;
+    }
+
+    /* ФИКС ДЛЯ КАРТОЧЕК УСЛУГ НА НОУТБУКАХ */
+    /* Мы сохраняем ховеры, но увеличиваем высоту, так как в 2 колонках текст может занимать больше строк */
+    .service-wrapper {
+        /* Задаем жесткую ширину для двух колонок с учетом гапа */
+        width: calc(50% - 13px); 
+        height: 400px; 
+    }
+
+    .reviews-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .reviews-image {
+        width: 100%;
+        max-width: 500px;
+        height: 350px;
+    }
+
+    .fixed-bg-section {
+        /* Магия iOS: background-attachment: fixed на мобилках заменяется на clip-path */
+        /* Это создает физическое сквозное 3D-окно, сквозь которое виден фон */
+        clip-path: inset(0 0 0 0);
+        height: 400px !important;
+    }
+
+    .complex-grid {
+        display: flex !important; /* Переключаем на флекс для центрирования нечетного элемента */
+        flex-wrap: wrap;
+        justify-content: center; /* ТРЕТЬЯ КАРТОЧКА ВСТАНЕТ РОВНО ПО СЕРЕДИНЕ */
+        gap: 25px;
+    }
+
+    .complex-wrapper {
+        width: calc(50% - 13px); /* Две карточки в первый ряд */
+        height: 420px;
+    }
+
+    .service-wrapper:hover .service-img,
+    .complex-wrapper:hover .complex-img {
+        filter: grayscale(0.1) brightness(0.7) contrast(1.2) saturate(0.9) !important;
+    }
+    .service-wrapper:hover .service-overlay,
+    .complex-wrapper:hover .complex-overlay {
+        background: linear-gradient(to top, rgba(10, 11, 13, 0.95) 0%, rgba(10, 11, 13, 0.4) 100%) !important;
+    }
+
+    /*ББЛОК 6 ПОДПИСКИ*/
+    .subs-grid {
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: center; /* ЗОЛОТАЯ КАРТОЧКА ВСТАНЕТ РОВНО ПО ЦЕНТРУ СНИЗУ */
+        gap: 25px;
+    }
+    .sub-wrapper {
+        width: calc(50% - 13px);
+        height: 350px;
+    }
+
+    .benefits-container {
+        flex-direction: column;
+        gap: 50px;
+    }
+    .benefits-img-wrapper, .benefits-content {
+        width: 100%;
+        max-width: 600px;
+    }
+    .benefits-img-wrapper {
+        height: 400px;
+    }
+
+    /*Блок 7*/
+    .reviews-container {
+        flex-direction: column-reverse; /* Отзывы снизу, картинка сверху */
+        gap: 50px;
+        align-items: center; /* ЦЕНТРИРУЕМ ВСЕ КОРНЕВЫЕ БЛОКИ ПО СЕРЕДИНЕ ЭКРАНА */
+        width: 100% !important;
+    }
+
+    .reviews-list {
+        width: 100% !important; /* Карточки отзывов растягиваются на всю ширину */
+    }
+
+    /* ФИКС ПРАВОЙ КОЛОНКИ: Заголовок + Картинка */
+    .reviews-right-col {
+        width: 100% !important;
+        max-width: 600px; /* Ограничиваем ширину картинки, чтобы она не разлеталась на весь планшет */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Центрируем и заголовок, и карточку с фото */
+        text-align: center; /* Текст FEEDBACK и ОТЗЫВЫ встанет по центру */
+    }
+
+    .reviews-header-side {
+        text-align: center; /* Фикс выравнивания текста */
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .reviews-img-wrapper {
+        width: 100% !important;
+    }
+
+    .reviews-image {
+        height: 400px !important; /* Фиксированная красивая высота для планшета */
+        width: 100% !important;
+        margin: 0 auto; /* Жесткое центрирование корпуса */
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* Ровные 2 колонки для планшетов */
+        gap: 25px !important;
+    }
+    .portfolio-wrapper {
+        flex: 0 0 calc((100% - 25px) / 2) !important;
+        height: 440px;
+    }
+    .prev-arrow { left: -10px; }
+    .next-arrow { right: -10px; }
+
+    .contacts-grid {
+        grid-template-columns: 1fr !important; /* На планшетах строгая одна колонка */
+        gap: 25px;
+    }
+}
+
+/* 2. ДЛЯ МОБИЛЬНЫХ ТЕЛЕФОНОВ (до 768px) */
+@media (max-width: 768px) {
+    html, body, main, section, div, footer {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    section {
+        padding: 50px 20px;
+    }
+
+    .main-header {
+        position: static; /* На смартфонах фиксированная шапка съедает слишком много экрана, делаем ее обычной */
+    }
+
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .nav-menu {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .main-title {
+        font-size: 38px;
+    }
+
+    /* ВСЕ СЕТКИ превращаются в ОДНУ строгую колонку — элементы ложатся идеально ровно */
+    .process-grid,
+    .subs-grid,
+    .portfolio-grid,
+    .contacts-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Слайдер и карточки в одну колонку */
+    .portfolio-item-slider,
+    .sub-card {
+        grid-column: span 1 !important;
+    }
+
+    .slider-container {
+        height: 300px; /* Уменьшаем высоту слайдера "До/После" на мобилках, чтобы он не занимал весь экран */
+    }
+
+    .map-link-container,
+    .map-wrapper {
+        height: 350px;
+    }
+
+    .map-card-info {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin: 20px;
+        background: var(--bg-card);
+        border-top: none;
+    }
+
+    /* Выравнивание подвала */
+    .footer-inner-card {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .footer-brand-col {
+        align-items: center;
+    }
+
+    .footer-links-col h4,
+    .footer-menu {
+        align-items: center;
+        text-align: center;
+    }
+
+    /* ОТКЛЮЧАЕМ 3D-НАКЛОН НА СМАРТФОНАХ */
+    /* На мобильных устройствах нет курсора мыши, а тач-события из-за data-tilt будут дергать экран при скролле пальцем */
+    .map-link-container,
+    .process-item,
+    .sub-card,
+    .footer-wrapper,
+    .hero-3d-card,
+    .review-item,
+    .reviews-image,
+    .portfolio-item,
+    .contacts-info-card,
+    .meta-box {
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .fixed-bg-section {
+        clip-path: inset(0 0 0 0);
+        height: auto !important;
+        padding: 80px 20px !important; /* Увеличиваем высоту за счет отступов для текста */
+    }
+    
+    .fixed-bg-content h2 {
+        font-size: 24px !important; /* Уменьшаем размер букв, чтобы заголовок не ломал экран */
+        line-height: 1.4 !important;
+    }
+    
+    .fixed-bg-content p {
+        font-size: 13px !important;
+        line-height: 1.6 !important;
+    }
+
+    .services-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important; /* Строго один элемент в ряд! */
+        gap: 25px !important;
+        width: 100% !important;
+    }
+
+    /* ФИКС ДЛЯ КАРТОЧЕК УСЛУГ НА СМАРТФОНАХ */
+    .service-wrapper {
+        width: 100% !important;
+        height: auto !important; /* Карточка будет расти сама под размер текста */
+    }
+
+    .service-wrapper,
+    .complex-wrapper,
+    .process-wrapper,
+    .sub-wrapper,
+    .review-wrapper,
+    .contacts-wrapper {
+        perspective: none !important;
+        transform: none !important;
+        height: auto !important;
+    }
+
+    /* 3. ПЕРЕВОДИМ КАРТОЧКУ В ВЕРТИКАЛЬНЫЙ РЕЖИМ */
+    
+
+    /* 4. ВОЗВРАЩАЕМ СОЧНУЮ КАРТИНКУ НА СМАРТФОНАХ */
+    .service-img {
+        position: relative !important;
+        width: 100% !important;
+        height: 200px !important; /* Высота фотографии на экране телефона */
+        top: auto !important;
+        left: auto !important;
+        /* Убираем темные матовые фильтры десктопа, чтобы картинка сразу горела цветом */
+        filter: grayscale(0) brightness(0.8) contrast(1.1) !important; 
+        transform: none !important;
+        display: block !important;
+    }
+
+    /* 6. СБРАСЫВАЕМ АБСОЛЮТНОЕ ПОЗИЦИОНИРОВАНИЕ ТЕКСТА */
+    .service-content {
+        position: relative !important;
+        bottom: auto !important;
+        left: auto !important;
+        padding: 25px 20px !important; /* Удобные отступы для пальцев */
+        transform: none !important;
+        width: 100% !important;
+    }
+
+    .service-content h3 {
+        font-size: 18px !important;
+        margin-bottom: 20px !important;
+        line-height: 1.3 !important;
+    }
+
+    /* 7. ОТКРЫВАЕМ ПРАЙС-ЛИСТ (ЦЕНЫ ВИДНЫ СРАЗУ, БЕЗ ХОВЕРА) */
+    .service-prices {
+        opacity: 1 !important;
+        transform: none !important;
+        display: flex !important;
+        visibility: visible !important;
+    }
+
+    .price-row {
+        padding: 12px 0 !important; /* Делаем строки шире, чтобы по ним было удобно тапать */
+        font-size: 14px !important;
+    }
+    
+    .price-row b {
+        font-size: 14px !important;
+    }
+
+    .service-wrapper:hover .service-card,
+    .complex-wrapper:hover .complex-card {
+        border-color: var(--border-color) !important; /* НА СМАРТФОНЕ ОБВОДКА БОЛЬШЕ НЕ ИЗМЕНЯЕТСЯ! */
+        box-shadow: 0 15px 35px rgba(0,0,0,0.3) !important;
+        transform: none !important;
+    }
+
+    .service-wrapper:hover .service-img,
+    .complex-wrapper:hover .complex-img,
+    .service-img,
+    .complex-img {
+        filter: grayscale(0) brightness(0.8) contrast(1.1) saturate(1) !important;
+        transform: none !important;
+        display: block !important;
+    }
+
+    .service-overlay,
+    .complex-overlay,
+    .service-wrapper:hover .service-overlay,
+    .complex-wrapper:hover .complex-overlay {
+        display: none !important;
+    }
+
+    .service-content,
+    .complex-content,
+    .service-wrapper:hover .service-content,
+    .complex-wrapper:hover .complex-content {
+        transform: none !important;
+    }
+
+    .hero-wrapper {
+        width: 100% !important;
+        max-width: 500px !important;
+        height: 320px !important; /* Делаем аккуратную высоту для экранов телефонов */
+        margin: 0 auto;
+    }
+
+    .hero-3d-card {
+        transform: none !important;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5) !important;
+    }
+
+    .card-bg {
+        width: 100% !important;
+        height: 100% !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        
+        /* ВКЛЮЧАЕМ КАРТИНКУ НА СМАРТФОНАХ: убираем черно-белый тон и поднимаем яркость */
+        filter: grayscale(0) brightness(0.8) contrast(1.1) saturate(1) !important;
+        mix-blend-mode: normal !important;
+        opacity: 1 !important;
+    }
+
+    .card-gloss {
+        display: none !important; /* Блик на мобилке не нужен */
+    }
+
+    .complex-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important; /* Строго одна колонка */
+        gap: 25px !important;
+        width: 100% !important;
+    }
+    
+    .complex-wrapper {
+        width: 100% !important; /* Обертка занимает всю ширину экрана */
+        max-width: 100% !important;
+        margin: 0 0 20px 0 !important; /* Добавляем только отступ снизу между карточками */
+        padding: 0 !important;
+    }
+
+    .complex-wrapper:last-child {
+        margin-bottom: 0 !important;
+    }
+    
+    .complex-block {
+        padding: 50px 0px !important; /* ОБНУЛЯЕМ БОКОВЫЕ ОТСТУПЫ СЕКЦИИ, ЧТОБЫ КАРТОЧКИ ВСТАЛИ ОТ КРАЯ ДО КРАЯ */
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .complex-grid {
+        display: block !important; /* Переводим в блочный режим, отменяем флексы ноутбука */
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .complex-card {
+        width: 100% !important; /* Сама карточка растягивается на всю ширину */
+        border-left: none !important; /* Убираем боковые рамки, чтобы на мобилке смотрелось монолитно */
+        border-right: none !important;
+        border-radius: 0 !important; /* Убираем закругления по бокам для эффекта "от края до края" */
+    }
+    
+    .service-card,
+    .complex-card {
+        border-color: var(--border-color) !important; /* Оставляем только дефолтную тонкую серую рамку */
+        box-shadow: 0 15px 35px rgba(0,0,0,0.3) !important;
+        transform: none !important;
+        
+        /* Фикс уродского синего/серого выделения браузера при нажатии пальцем */
+        -webkit-tap-highlight-color: transparent !important; 
+        outline: none !important;
+    }
+
+    .complex-img {
+        position: relative !important;
+        width: 100% !important;
+        height: 220px !important; /* Высота фото на телефоне */
+        top: auto !important;
+        left: auto !important;
+        /* Картинка сразу сочная и светлая */
+        filter: grayscale(0) brightness(0.8) contrast(1.1) saturate(1) !important;
+        transform: none !important;
+        display: block !important;
+    }
+    
+    .complex-overlay { 
+        display: none !important; /* Полностью убираем затемняющий слой */
+    }
+    
+    .complex-content {
+        position: relative !important;
+        padding: 25px 20px !important;
+        transform: none !important;
+        width: 100% !important;
+    }
+    
+    /* ЖЕСТКО ВЫТАСКИВАЕМ ЦЕНЫ НАРУЖУ БЕЗ НАЖАТИЙ И ХОВЕРОВ */
+    .complex-prices {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
+        transform: none !important;
+        margin-top: 20px !important;
+        
+        /* ДОБАВЛЯЕМ КРАСИВУЮ ЗОЛОТУЮ ЛИНИЮ ДЛЯ ВСЕХ КАРТОЧЕК */
+        border-left: 2px solid var(--accent) !important;
+        padding-left: 15px !important; /* Отступ текста от полоски */
+        background: rgba(255, 255, 255, 0.01) !important; /* Легкая матовая подложка */
+    }
+    
+    .price-row {
+        padding: 12px 0 !important; /* Широкие строки, чтобы удобно тапать пальцем */
+        font-size: 14px !important;
+    }
+    
+    .price-row.single {
+        border-left: none !important;
+        padding-left: 0 !important;
+        background: transparent !important;
+    }
+
+    .price-row b {
+        font-size: 14px !important;
+    }
+
+    /*БЛОК 6 ПОДПИСКИ*/
+    .subs-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important; /* На смартфонах строгая вертикальная лента */
+        gap: 25px !important;
+    }
+    .sub-wrapper {
+        width: 100% !important;
+        height: auto !important;
+    }
+    .sub-card {
+        padding: 40px 20px !important;
+        transform: none !important;
+    }
+    /* Сбрасываем градиенты фонов ховера для стабильности тача на мобилке */
+    .sub-wrapper:hover .sub-card {
+        background: var(--bg-card) !important;
+        transform: none !important;
+    }
+
+    .benefits-lists-grid {
+        flex-direction: column;
+        gap: 35px;
+    }
+    .benefits-list-col {
+        width: 100%;
+    }
+    .benefits-content h2 {
+        font-size: 28px !important;
+    }
+    .benefits-phone {
+        font-size: 24px !important;
+    }
+    /* Сброс 3D на тачах */
+    .benefits-image-card {
+        transform: none !important;
+    }
+
+    /*БЛОК 7 отзывы*/
+    .reviews-block {
+        padding: 60px 20px !important;
+    }
+    .review-item {
+        padding: 25px 20px !important;
+    }
+    .quote-icon {
+        font-size: 54px !important;
+        top: 5px !important;
+        right: 15px !important;
+    }
+    .section-title-side {
+        font-size: 32px !important;
+    }
+    /* Жесткий сброс 3D на тачах для предотвращения фантомных скроллов */
+    .review-item, .reviews-image, .rev-img-inner {
+        transform: none !important;
+    }
+
+    /*БЛОК 8 Портфолио*/
+    .portfolio-block {
+        padding: 60px 20px !important;
+    }
+    .portfolio-grid {
+        grid-template-columns: 1fr !important; /* Строго одна аккуратная колонка на смартфонах */
+        gap: 30px !important;
+    }
+    .portfolio-wrapper {
+        flex: 0 0 100% !important;
+        height: 420px;
+    }
+    .slider-arrow { width: 40px; height: 40px; }
+    .prev-arrow { left: 5px; }
+    .next-arrow { right: 5px; }
+    .after-zone { filter: grayscale(0) brightness(0.7) contrast(1.1) !important; }
+    .portfolio-case-card { transform: none !important; }
+    /* На смартфонах зоны "ПОСЛЕ" горят сочностью сразу без ховеров */
+    .after-zone {
+        filter: grayscale(0) brightness(0.7) contrast(1.1) !important;
+    }
+    .before-zone {
+        filter: grayscale(0.1) brightness(0.4) contrast(1.1) !important;
+    }
+    .portfolio-case-card {
+        transform: none !important; /* Защита скролла на тачах */
+    }
+
+    /*Блок 10*/
+    .contacts-block { padding: 60px 20px !important; }
+    .contacts-info-card { padding: 30px 20px !important; }
+    .meta-box { padding: 30px 25px !important; }
+    .contact-row-link { padding: 15px 20px !important; }
+    .contact-value { font-size: 15px !important; }
+    /* Сброс 3D на тачах */
+    .contacts-info-card, .meta-box { transform: none !important; }
+}
