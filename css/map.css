@@ -73,4 +73,15 @@
         padding-left: 15px !important; 
         padding-right: 15px !important; 
     }
+    .map-image-bg {
+        background-size: cover !important; 
+        background-position: center 40% !important; 
+    }
+
+    .map-block,
+    .map-container,
+    .u-map {
+        height: 380px !important;
+        min-height: 380px !important;
+    }
 }
