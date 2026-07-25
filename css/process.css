@@ -48,13 +48,9 @@
 /* Обычное состояние: неоновая скрыта, серая приглушена */
 .proc-icon-base {
     opacity: 0.35;
-    visibility: visible !important;
-    z-index: 2;
 }
 .proc-icon-hover {
     opacity: 0;
-    visibility: hidden !important;
-    z-index: 1;
 }
 
 /* Твой номер шага */
@@ -94,9 +90,7 @@
     box-shadow: 0 25px 50px rgba(0,0,0,0.5);
 }
 
-/* Зажигаем неоновую белую иконку */
-.process-item:hover .proc-icon-base { opacity: 0; visibility: hidden; z-index: 1;}
-.process-item:hover .proc-icon-hover { opacity: 1; visibility: visible; z-index: 2;}
+
 
 /* Подсвечиваем номер шага золотом */
 .process-item:hover .step-num {
@@ -124,13 +118,9 @@
     /* МАГИЯ ТАЧ-СКРИНА: Неоновые белые иконки на iPad горят СРАЗУ, без ховеров */
     .proc-icon-base { 
         opacity: 0 !important; /* Серую тусклую иконку полностью гасим */
-        visibility: hidden;
-        z-index: 1;
     }
     .proc-icon-hover { 
         opacity: 1 !important; /* Белая неоновая копия горит на 100% со старта */
-        visibility: visible;
-        z-index: 2;
     }
 
     /* Номера шагов сразу подсвечиваем фирменным золотом */
@@ -153,13 +143,9 @@
     }
     .process-item:hover .proc-icon-base { 
         opacity: 0 !important; 
-        visibility: hidden;
-        z-index: 1;
     }
     .process-item:hover .proc-icon-hover { 
         opacity: 1 !important; /* Яркость неона при тапе останется ТАКОЙ ЖЕ, вспышек больше не будет */
-        visibility: visible;
-        z-index: 2;
     }
     .process-item:hover .step-num {
         color: rgba(197, 168, 128, 0.15) !important;
@@ -186,7 +172,7 @@
     }
     
     /* На мобилках всё сразу горит сочностью */
-    .proc-icon-base { opacity: 0 !important; visibility: hidden; z-index: 1;}
-    .proc-icon-hover { opacity: 1 !important; visibility: visible; z-index: 2;}
+    .proc-icon-base { opacity: 0 !important; }
+    .proc-icon-hover { opacity: 1 !important; }
     .step-num { color: rgba(201, 166, 116, 0.5) !important; }
 }
