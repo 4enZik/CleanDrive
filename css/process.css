@@ -95,8 +95,8 @@
 }
 
 /* Зажигаем неоновую белую иконку */
-.process-item:hover .proc-icon-base { opacity: 0; visibility: hidden;}
-.process-item:hover .proc-icon-hover { opacity: 1; visibility: visible;}
+.process-item:hover .proc-icon-base { opacity: 0; visibility: hidden; z-index: 1;}
+.process-item:hover .proc-icon-hover { opacity: 1; visibility: visible; z-index: 2;}
 
 /* Подсвечиваем номер шага золотом */
 .process-item:hover .step-num {
@@ -125,10 +125,12 @@
     .proc-icon-base { 
         opacity: 0 !important; /* Серую тусклую иконку полностью гасим */
         visibility: hidden;
+        z-index: 1;
     }
     .proc-icon-hover { 
         opacity: 1 !important; /* Белая неоновая копия горит на 100% со старта */
         visibility: visible;
+        z-index: 2;
     }
 
     /* Номера шагов сразу подсвечиваем фирменным золотом */
@@ -151,9 +153,13 @@
     }
     .process-item:hover .proc-icon-base { 
         opacity: 0 !important; 
+        visibility: hidden;
+        z-index: 1;
     }
     .process-item:hover .proc-icon-hover { 
         opacity: 1 !important; /* Яркость неона при тапе останется ТАКОЙ ЖЕ, вспышек больше не будет */
+        visibility: visible;
+        z-index: 2;
     }
     .process-item:hover .step-num {
         color: rgba(197, 168, 128, 0.15) !important;
@@ -180,7 +186,7 @@
     }
     
     /* На мобилках всё сразу горит сочностью */
-    .proc-icon-base { opacity: 0 !important; visibility: hidden;}
-    .proc-icon-hover { opacity: 1 !important; visibility: visible;}
+    .proc-icon-base { opacity: 0 !important; visibility: hidden; z-index: 1;}
+    .proc-icon-hover { opacity: 1 !important; visibility: visible; z-index: 2;}
     .step-num { color: rgba(201, 166, 116, 0.5) !important; }
 }

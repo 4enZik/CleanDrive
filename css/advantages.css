@@ -83,8 +83,8 @@
 }
 
 /* Эффект зажигания неона */
-.feature-item:hover .feat-icon-base { opacity: 0; visibility: hidden;}
-.feature-item:hover .feat-icon-hover { opacity: 1; visibility: visible;}
+.feature-item:hover .feat-icon-base { opacity: 0; visibility: hidden; z-index: 1;}
+.feature-item:hover .feat-icon-hover { opacity: 1; visibility: visible; z-index: 2;}
 
 
 /* ==========================================================================
@@ -103,6 +103,6 @@
     }
     
     /* На мобилках и планшетах иконки горят сразу, без фантомных ховеров */
-    .feat-icon-base { opacity: 0 !important; visibility: hidden;}
-    .feat-icon-hover { opacity: 1 !important; visibility: visible;}
+    .feat-icon-base { opacity: 0 !important; visibility: hidden; z-index: 1;}
+    .feat-icon-hover { opacity: 1 !important; visibility: visible; z-index: 2;}
 }
