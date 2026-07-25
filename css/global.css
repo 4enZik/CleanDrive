@@ -89,3 +89,16 @@ section {
     /* КРИТИЧЕСКИЙ ФИКС ШРИФТА: Текст появится на экране МГНОВЕННО */
     font-display: swap; 
 }
+
+/* ЭФФЕКТ ПЛАВНОГО ПОЯВЛЕНИЯ КАРТИНОК ПОСЛЕ ЛЕНИВОЙ ЗАГРУЗКИ */
+img[data-src] {
+    opacity: 0;
+    filter: blur(5px);
+    transition: opacity 0.6s ease, filter 0.6s ease !important;
+}
+
+/* Когда JS-скрипт подставит класс img-loaded, картинка мягко проявится */
+img.img-loaded {
+    opacity: 1 !important;
+    filter: blur(0) !important;
+}
