@@ -45,10 +45,14 @@
 
 /* Изначальное состояние иконок */
 .feat-icon-base {
-    opacity: 0.35; /* Приглушаем базовую серую иконку */
+    opacity: 0.35 !important; /* Приглушаем базовую серую иконку и защищаем от .img-loaded */
+    visibility: visible !important;
+    z-index: 2;
 }
 .feat-icon-hover {
-    opacity: 0; /* Неоновая копия скрыта */
+    opacity: 0 !important; /* Неоновая копия наглухо скрыта со старта */
+    visibility: hidden !important;
+    z-index: 1;
 }
 
 /* Текстовые стили */
@@ -79,8 +83,8 @@
 }
 
 /* Эффект зажигания неона */
-.feature-item:hover .feat-icon-base { opacity: 0; }
-.feature-item:hover .feat-icon-hover { opacity: 1; }
+.feature-item:hover .feat-icon-base { opacity: 0; visibility: hidden;}
+.feature-item:hover .feat-icon-hover { opacity: 1; visibility: visible;}
 
 
 /* ==========================================================================
@@ -99,6 +103,6 @@
     }
     
     /* На мобилках и планшетах иконки горят сразу, без фантомных ховеров */
-    .feat-icon-base { opacity: 0 !important; }
-    .feat-icon-hover { opacity: 1 !important; }
+    .feat-icon-base { opacity: 0 !important; visibility: hidden;}
+    .feat-icon-hover { opacity: 1 !important; visibility: visible;}
 }
