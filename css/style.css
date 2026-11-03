@@ -1,0 +1,69 @@
+/* 1. Подключаем шрифты Google */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Syncopate:wght@400;700&display=swap');
+
+/* 2. Объявляем переменные (твой брендбук) */
+:root {
+  --bg-main: #0a0b0d; /* Темный фон */
+  --bg-card: #111214;
+  --accent: #c5a880; /* Твой золотой/бежевый акцент */
+  --text-white: #ffffff;
+  --text-muted: #8b8e94;
+  --border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* 3. Базовые стили для всего сайта */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-white);
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ================= АНИМАЦИИ ПОЯВЛЕНИЯ ================= */
+
+.anim-fade-up,
+.anim-fade-left,
+.anim-fade-right {
+  opacity: 0;
+  /* Увеличили время до 1.2s для плавности */
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), 
+              transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Начальные сдвиги — увеличили для выразительности */
+.anim-fade-up {
+  transform: translateY(80px); /* Было 40px */
+}
+.anim-fade-left {
+  transform: translateX(-80px); /* Было -40px */
+}
+.anim-fade-right {
+  transform: translateX(80px); /* Было 40px */
+}
+
+/* Появился */
+.anim-fade-up.is-visible,
+.anim-fade-left.is-visible,
+.anim-fade-right.is-visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+@media (max-width: 1024px) {
+  /* На планшетах и телефонах убираем сдвиги по горизонтали */
+  .anim-fade-left,
+  .anim-fade-right {
+    transform: translateY(40px); /* Заменяем сдвиг влево/вправо на сдвиг вниз */
+  }
+  
+  .anim-fade-left.is-visible,
+  .anim-fade-right.is-visible {
+    transform: translate(0, 0);
+  }
+}

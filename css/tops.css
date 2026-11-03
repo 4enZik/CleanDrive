@@ -1,0 +1,75 @@
+/* ================= SEO-ТЕКСТ ================= */
+.seo-text-block {
+  padding: 80px 20px;
+  background: #0d0e11; /* Чуть светлее фона, чтобы отделить от карты */
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.seo-container {
+  max-width: 900px; /* Узкая колонка для удобного чтения */
+  margin: 0 auto;
+}
+
+.seo-text-block h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 30px 0;
+  line-height: 1.3;
+}
+
+.seo-text-block h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 40px 0 15px 0;
+}
+
+.seo-text-block p {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0 0 20px 0;
+}
+
+.seo-text-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+
+.seo-text-block ul li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.seo-text-block ul li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.seo-text-block a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(58, 160, 255, 0.5);
+  transition: border-color 0.3s ease;
+}
+
+.seo-text-block a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* ================= АДАПТИВ ================= */
+@media (max-width: 768px) {
+  .seo-text-block {
+    padding: 60px 15px;
+  }
+}

@@ -1,0 +1,156 @@
+/* ================= БЛОК ПОРТФОЛИО ================= */
+.portfolio-block {
+  padding: 100px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.portfolio-badge {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* ================= КАРУСЕЛЬ ================= */
+.portfolio-slider-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 40px; /* Отступ для стрелок */
+}
+
+/* Видимое окно */
+.portfolio-slider-viewport {
+  overflow: hidden;
+  border-radius: 8px;
+  width: 100%;
+}
+
+/* Движущаяся лента */
+.portfolio-slider-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+/* Карточка */
+.portfolio-wrapper {
+  flex: 0 0 calc(33.333% - 14px); /* 3 карточки в ряд на ПК */
+  min-width: 0;
+}
+
+.portfolio-case-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #111;
+}
+
+/* Зоны "До" / "После" */
+.case-split-zone {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+.case-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.7) contrast(0.9); 
+  transition: filter 0.3s ease; /* Плавность */
+}
+
+/* Подписи */
+.case-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.label-before { background: rgba(0,0,0,0.7); }
+.label-after { background: var(--accent); color: #000; }
+
+/* ================= СТРЕЛКИ ================= */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.slider-arrow:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.slider-arrow svg {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+  transition: fill 0.3s ease;
+}
+
+.slider-arrow:hover svg {
+  fill: #0a0b0d;
+}
+
+.prev-arrow { left: 0; }
+.next-arrow { right: 0; }
+
+/* ================= АДАПТИВ ================= */
+@media (max-width: 992px) {
+  .portfolio-wrapper {
+    flex: 0 0 calc(50% - 10px); /* 2 карточки в ряд */
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-block { padding: 60px 15px; }
+  .portfolio-slider-container { padding: 0; }
+  
+  .portfolio-wrapper {
+    flex: 0 0 100%; /* 1 карточка на всю ширину */
+  }
+  
+  .slider-arrow {
+    width: 40px;
+    height: 40px;
+    background: rgba(0,0,0,0.6); /* Ярче на мобилке */
+  }
+  
+  .prev-arrow { left: 10px; }
+  .next-arrow { right: 10px; }
+}

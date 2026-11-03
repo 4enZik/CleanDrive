@@ -1,0 +1,239 @@
+/* ================= ПЕРЕМЕННЫЕ (если их нет в отдельном файле) ================= */
+:root {
+  --accent: #3aa0ff; /* Твой синий цвет */
+  --text-muted: #9fb3d1; /* Светло-серый */
+  --border-color: rgba(255, 255, 255, 0.08);
+  --bg-dark: #0a0b0d;
+  --header-height: 80px;
+}
+
+/* ================= ШАПКА ================= */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background: rgba(10, 11, 13, 0.85);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 100; /* Достаточно для шапки */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+}
+
+/* ================= ЛОГОТИП ================= */
+.logo-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo-link img {
+  display: block;
+  height: 40px; /* Подгони под свой логотип */
+  width: auto;
+  max-width: 180px; /* Чтобы не растягивался */
+}
+
+/* ================= МЕНЮ (ПК) ================= */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-menu a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus-visible {
+  color: var(--accent);
+}
+
+/* ================= ПРАВАЯ ЧАСТЬ (Соцсети + Телефон) ================= */
+.header-right-side {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.header-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-social-icon {
+  width: 34px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.header-social-icon svg {
+  width: 15px;
+  height: 15px;
+  fill: var(--text-muted);
+  transition: fill 0.3s ease;
+}
+
+.header-social-icon:hover {
+  background: rgba(58, 160, 255, 0.08); /* Под цвет акцента */
+  border-color: rgba(58, 160, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.header-social-icon:hover svg {
+  fill: var(--accent);
+}
+
+.header-phone {
+  font-family: 'Syncopate', sans-serif; /* Если оставляешь этот шрифт */
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  transition: color 0.3s ease;
+}
+
+.header-phone:hover {
+  color: var(--accent);
+}
+
+/* ================= БУРГЕР ================= */
+.mobile-burger {
+  display: none; /* Прячем по умолчанию на ПК */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 200; /* Выше шапки, чтобы быть доступным */
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-burger span {
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+/* ================= МОБИЛЬНОЕ МЕНЮ (Оверлей) ================= */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  background: rgba(10, 11, 13, 0.95);
+  backdrop-filter: blur(25px);
+  z-index: 150; /* Ниже шапки, но выше контента */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.mobile-menu-overlay.active {
+  right: 0;
+}
+
+.mobile-menu-close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 42px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.mobile-nav-links a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 300;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-nav-links a:hover {
+  color: var(--accent);
+}
+
+.mobile-menu-footer {
+  margin-top: 50px;
+}
+
+.mobile-menu-phone {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* ================= АДАПТИВ ================= */
+@media (max-width: 1100px) {
+  .nav-menu { gap: 12px; }
+  .nav-menu a { font-size: 11px; }
+  .header-right-side { gap: 15px; }
+}
+
+@media (max-width: 960px) {
+  .nav-menu, .header-right-side { 
+    display: none; /* Прячем ПК-меню и контакты */
+  }
+  
+  .mobile-burger { 
+    display: flex; 
+  }
+
+  .main-header { 
+    height: 75px; 
+  }
+
+  .header-container { 
+    padding: 0 25px;
+  }
+}

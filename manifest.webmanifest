@@ -1,0 +1,16 @@
+{
+  "name": "CleanDrive — химчистка авто",
+  "short_name": "CleanDrive",
+  "description": "Профессиональная химчистка салона автомобиля в Берёзе.",
+  "lang": "ru",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0f1e",
+  "theme_color": "#0a0f1e",
+  "icons": [
+    { "src": "images/favicon-96x96.png", "sizes": "96x96", "type": "image/png" },
+    { "src": "images/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "images/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

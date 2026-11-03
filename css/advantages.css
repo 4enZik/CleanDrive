@@ -1,0 +1,124 @@
+/* ================= HERO FEATURES ================= */
+.hero-features-block {
+  padding: 60px 20px 100px; 
+  width: 100%;
+}
+
+.features-grid {
+  display: grid;
+  /* Адаптивная сетка: автоматически переносит карточки */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px; /* Чтобы на огромных экранах не растягивалось */
+  margin: 0 auto;
+}
+
+/* ================= КАРТОЧКА ================= */
+.feature-item {
+  background: #111214; /* Очень темный фон */
+  padding: 40px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Едва заметная рамка */
+  border-radius: 2px; /* На скрине углы почти прямые */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;
+  
+  /* 3D-эффект */
+  transform-style: preserve-3d;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.feature-item:hover {
+  border-color: rgba(58, 160, 255, 0.4); /* Синий акцент вместо золотого */
+  box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+  transform: translateY(-5px); /* Легкий подъем карточки */
+}
+
+/* ================= ИКОНКИ ================= */
+.feature-icon-box {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 25px;
+  transform: translateZ(30px); /* Вылет иконки в 3D */
+}
+
+.feature-icon-box img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Изначальное состояние: серая видна, белая скрыта */
+.feat-icon-base {
+  opacity: 0.15; /* Едва заметный силуэт */
+}
+.feat-icon-hover {
+  opacity: 0; 
+}
+
+/* ХОВЕР: гасим серую, зажигаем белую */
+.feature-item:hover .feat-icon-base {
+  opacity: 0;
+}
+.feature-item:hover .feat-icon-hover {
+  opacity: 1;
+}
+
+/* ================= ТЕКСТ ================= */
+.feature-item h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+  transform: translateZ(25px); /* Текст парит в 3D */
+}
+
+.feature-item p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  font-weight: 300;
+  margin: 0;
+  transform: translateZ(20px); /* Текст парит в 3D */
+}
+
+/* ================= АДАПТИВ ================= */
+@media (max-width: 1024px) {
+  .features-grid { 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px; 
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-features-block {
+    padding: 40px 20px 60px;
+  }
+  
+  .features-grid { 
+    grid-template-columns: 1fr; /* В одну колонку на мобилках */
+    gap: 20px; 
+  }
+  
+  .feature-item {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  
+  /* На мобилках нет курсора мыши, поэтому всегда показываем яркую иконку */
+  .feat-icon-base {
+    opacity: 0;
+  }
+  .feat-icon-hover {
+    opacity: 1;
+  }
+}
